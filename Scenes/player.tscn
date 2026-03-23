@@ -466,24 +466,22 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4pcjl"]
-radius = 22.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v84ne"]
+radius = 23.0
 height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(234, 186)
 script = ExtResource("1_v84ne")
+metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -39)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_ek41f")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.66738766
+frame_progress = 0.91408026
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
-position = Vector2(-40, 24)
-scale = Vector2(8, 8)
-shape = SubResource("CapsuleShape2D_4pcjl")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, 3)
+shape = SubResource("CapsuleShape2D_v84ne")

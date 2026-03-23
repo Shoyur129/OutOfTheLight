@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjkdv5yr4a3xt"]
+
+[ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_8od7v"]
+[ext_resource type="Texture2D" uid="uid://gwrsb7nff4s4" path="res://icon.svg" id="2_qc4db"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lc1oi"]
+
+[node name="test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8od7v")]
+position = Vector2(369, 104)
+scale = Vector2(0.25, 0.25)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(16, 4)
+scale = Vector2(4, 4)
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(354, 213)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1, -54)
+shape = SubResource("WorldBoundaryShape2D_lc1oi")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-109, 12)
+texture = ExtResource("2_qc4db")
+
+[node name="Icon2" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(106, 13)
+texture = ExtResource("2_qc4db")
+
+[node name="Icon3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-308, 13)
+texture = ExtResource("2_qc4db")
+
+[node name="Icon4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(318, 13)
+texture = ExtResource("2_qc4db")
