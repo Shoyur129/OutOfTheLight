@@ -1,6 +1,7 @@
-[gd_scene load_steps=104 format=3 uid="uid://h0g4erbxhvh3"]
+[gd_scene load_steps=106 format=3 uid="uid://h0g4erbxhvh3"]
 
 [ext_resource type="Texture2D" uid="uid://btnxoaielfsvr" path="res://Assets/Vampire/Vampire_1/PNG/PNG Sequences/Slashing/0_Vampire_Slashing_000.png" id="1_awsf5"]
+[ext_resource type="Script" uid="uid://dyvuj3nwavymn" path="res://scripts/player.gd" id="1_v84ne"]
 [ext_resource type="Texture2D" uid="uid://di0oudwwuejer" path="res://Assets/Vampire/Vampire_1/PNG/PNG Sequences/Slashing/0_Vampire_Slashing_001.png" id="2_v84ne"]
 [ext_resource type="Texture2D" uid="uid://dmq1tg0s3clhk" path="res://Assets/Vampire/Vampire_1/PNG/PNG Sequences/Slashing/0_Vampire_Slashing_002.png" id="3_4pcjl"]
 [ext_resource type="Texture2D" uid="uid://cn3xnwy827svh" path="res://Assets/Vampire/Vampire_1/PNG/PNG Sequences/Slashing/0_Vampire_Slashing_003.png" id="4_3ath1"]
@@ -465,13 +466,24 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4pcjl"]
+radius = 22.0
+height = 70.0
+
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(234, 186)
+script = ExtResource("1_v84ne")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(0, -39)
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_ek41f")
-animation = &"Attack"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.8686159
+frame_progress = 0.66738766
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
+position = Vector2(-40, 24)
+scale = Vector2(8, 8)
+shape = SubResource("CapsuleShape2D_4pcjl")
