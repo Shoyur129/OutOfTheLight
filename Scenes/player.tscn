@@ -467,7 +467,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v84ne"]
-radius = 23.0
+radius = 22.0
 height = 70.0
 
 [node name="Player" type="CharacterBody2D"]
@@ -480,7 +480,7 @@ scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_ek41f")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.91408026
+frame_progress = 0.3433093
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 3)

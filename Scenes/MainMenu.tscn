@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn1rtc0l3anh"]
+
+[ext_resource type="Texture2D" uid="uid://cay1avg06pqdc" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_01.png" id="1_853f1"]
+[ext_resource type="Texture2D" uid="uid://xppihoxpp0wn" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_02.png" id="2_8saeu"]
+[ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="3_8saeu"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8saeu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background01" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(0.8650674, 0.8706667)
+texture = ExtResource("1_853f1")
+
+[node name="Background02" type="Sprite2D" parent="."]
+position = Vector2(576, 326)
+scale = Vector2(0.9400299, 0.8693333)
+texture = ExtResource("2_8saeu")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 1147.0
+offset_bottom = 163.0
+theme_override_font_sizes/font_size = 60
+text = "Out Of the Light"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" parent="." instance=ExtResource("3_8saeu")]
+position = Vector2(585, 465.00003)
+scale = Vector2(3, 3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(582, 583)
+shape = SubResource("WorldBoundaryShape2D_8saeu")
