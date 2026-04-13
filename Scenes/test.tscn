@@ -41,5 +41,5 @@ position = Vector2(318, 13)
 texture = ExtResource("2_qc4db")
 
 [node name="Archer_1" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(400, 120)
+position = Vector2(368, 120)
 scale = Vector2(0.25, 0.25)

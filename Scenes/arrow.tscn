@@ -8,7 +8,7 @@ script/source = "extends Area2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 var direction: Vector2
-var speed = 300.0
+var speed = 150.0
 
 func _ready() -> void:
 	get_tree().create_timer(2).timeout.connect(queue_free)

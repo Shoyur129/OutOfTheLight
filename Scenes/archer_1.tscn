@@ -68,10 +68,6 @@
 [ext_resource type="Texture2D" uid="uid://c66avs1lfvv53" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Shooting/0_Archer_Shooting_007.png" id="65_fytau"]
 [ext_resource type="Texture2D" uid="uid://bxp3iomc2t115" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Shooting/0_Archer_Shooting_008.png" id="66_c33xw"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ew5t4"]
-radius = 20.0
-height = 66.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_frsn1"]
 animations = [{
 "frames": [{
@@ -298,24 +294,28 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ew5t4"]
+radius = 20.0
+height = 66.0
+
 [node name="Archer_1" type="CharacterBody2D"]
 script = ExtResource("1_sbx3k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 4)
-shape = SubResource("CapsuleShape2D_ew5t4")
 
 [node name="RotationNode" type="Node2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RotationNode"]
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_frsn1")
-animation = &"shoot"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="Marker2D" type="Marker2D" parent="RotationNode"]
 position = Vector2(33, 18)
 scale = Vector2(0.28, 0.28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 4)
+shape = SubResource("CapsuleShape2D_ew5t4")
 
 [connection signal="animation_finished" from="RotationNode/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="frame_changed" from="RotationNode/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]
