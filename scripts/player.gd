@@ -4,6 +4,10 @@ extends CharacterBody2D
 const SPEED = 150.0
 const JUMP_VELOCITY = -220.0
 
+var health := 5
+
+func _ready() -> void:
+	add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -23,3 +27,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func get_damage(damage: int):
+	health -= damage

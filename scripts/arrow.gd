@@ -1,15 +1,20 @@
-extends CharacterBody2D
+extends Area2D
 
-@export var SPEED = 100
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
-var dir : float
-var spawnPos : Vector2
-var spawnRot : float
+var direction: Vector2
+var speed = 150.0
 
-func _ready():
-	global_position = spawnPos
-	global_rotation = spawnRot
+func _ready() -> void:
+	get_tree().create_timer(2).timeout.connect(queue_free)
 
-func _physics_process(_delta):
-	velocity = Vector2(0, -SPEED).rotated(dir)
-	move_and_slide()
+func _physics_process(delta: float) -> void:
+	if direction.length() > 0:
+		global_position += direction.normalized() * speed * delta
+		rotation = direction.angle()
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.get_damage(1)
+		
+	queue_free()
