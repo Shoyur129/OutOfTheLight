@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpdst8fecdg14"]
+
+[ext_resource type="Texture2D" uid="uid://daii4osrxh3kg" path="res://Assets/Tilesets/Medieval/PNG/Platformer/smallplatform.png" id="1_7m3oa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ol24o"]
+size = Vector2(128, 31)
+
+[node name="SmallPlatorm" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_7m3oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ol24o")

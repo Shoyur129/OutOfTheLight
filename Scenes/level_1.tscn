@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=69 format=3 uid="uid://vy0rt7fokwpa"]
 
 [ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_vk57k"]
@@ -32,8 +32,9 @@
 [ext_resource type="Texture2D" uid="uid://rscx2pymx0f" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_03.png" id="28_h3d7q"]
 [ext_resource type="Texture2D" uid="uid://b8jevvsjy1s0p" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_04.png" id="29_6axy7"]
 [ext_resource type="Texture2D" uid="uid://b4lgjdvbqvu15" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_05.png" id="30_wnaei"]
-[ext_resource type="PackedScene" uid="uid://c3rpogghhwv76" path="res://Scenes/platform.tscn" id="31_xub2v"]
+[ext_resource type="PackedScene" uid="uid://c3rpogghhwv76" path="res://Scenes/BigPlatform.tscn" id="31_xub2v"]
 [ext_resource type="PackedScene" uid="uid://bmo26yqfnrhku" path="res://Scenes/coin.tscn" id="32_x5u8r"]
+[ext_resource type="PackedScene" uid="uid://bpdst8fecdg14" path="res://Scenes/small_platorm.tscn" id="35_ts4pv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cocpr"]
 texture = ExtResource("2_pm77i")
@@ -318,3 +319,7 @@ position = Vector2(509, 189)
 
 [node name="Coin2" parent="." instance=ExtResource("32_x5u8r")]
 position = Vector2(951, 293)
+
+[node name="SmallPlatorm" parent="." instance=ExtResource("35_ts4pv")]
+position = Vector2(184, 152)
+scale = Vector2(0.35, 0.35)
