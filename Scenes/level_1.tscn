@@ -1,7 +1,9 @@
-[gd_scene load_steps=66 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=68 format=3 uid="uid://vy0rt7fokwpa"]
 
+[ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://ccxfj1oejfci7" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_01.png" id="2_pm77i"]
+[ext_resource type="Texture2D" uid="uid://4kv5iwlu3dhp" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_02.png" id="2_ts4pv"]
 [ext_resource type="Texture2D" uid="uid://teyyof5vm7th" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_02.png" id="3_xub2v"]
 [ext_resource type="Texture2D" uid="uid://cvg1tkg8r2jud" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_06.png" id="4_x5u8r"]
 [ext_resource type="Texture2D" uid="uid://csjrbmkdfftv4" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_07.png" id="5_nwpk5"]
@@ -254,7 +256,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 3.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(348, 172), Vector2(813, 172)]
+"values": [Vector2(353, 217), Vector2(820, 217)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nwpk5"]
@@ -264,24 +266,41 @@ _data = {
 }
 
 [node name="Level 1" type="Node2D"]
+position = Vector2(-14, 487)
+
+[node name="Background01" type="Sprite2D" parent="."]
+position = Vector2(681, 178)
+texture = ExtResource("1_lk3dh")
+
+[node name="Background02" type="Sprite2D" parent="."]
+position = Vector2(681, 178)
+texture = ExtResource("2_ts4pv")
+
+[node name="Background03" type="Sprite2D" parent="."]
+position = Vector2(2015, 178)
+texture = ExtResource("1_lk3dh")
+
+[node name="Background04" type="Sprite2D" parent="."]
+position = Vector2(2015, 178)
+texture = ExtResource("2_ts4pv")
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
-position = Vector2(885, 142)
-scale = Vector2(0.5, 0.5)
+position = Vector2(107, 177)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+limit_left = 0
 limit_bottom = 1040
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(2, 0)
+position = Vector2(7, 45)
 scale = Vector2(0.25, 0.25)
 tile_set = SubResource("TileSet_u8waq")
 format = 2
-layer_0/tile_data = PackedInt32Array(2949167, 22, 0, 2949175, 22, 0, 2949159, 22, 0, 2949151, 22, 0, 2949183, 22, 0, 2949191, 23, 0, 2949143, 21, 0, 2949338, 15, 0, 2949346, 13, 0, 1900794, 13, 0, 1900802, 19, 0, 2425090, 24, 0, 2949378, 24, 0, 3473666, 24, 0, 3473626, 20, 0, 3997914, 20, 0, 3473634, 17, 0, 3473642, 17, 0, 2949362, 17, 0, 2425082, 17, 0, 2949370, 17, 0, 3473658, 17, 0, 3473650, 17, 0, 3997922, 17, 0, 3997930, 17, 0, 3997938, 17, 0, 3997946, 17, 0, 3997954, 24, 0, 2949354, 16, 0, 2425074, 16, 0, 2425066, 12, 0, 1900786, 12, 0, 4522199, 22, 0, 4522207, 22, 0, 4522215, 22, 0, 4522223, 22, 0, 4522231, 22, 0, 4522239, 22, 0, 4522247, 22, 0, 4522191, 21, 0, 4522255, 23, 0, 3997915, 27, 0, 3997955, 27, 0, 4063490, 24, 0, 3670287, 2, 0, 3670291, 2, 0, 2949384, 3, 0, 2949380, 3, 0, 2294032, 2, 0, 2294036, 2, 0)
+layer_0/tile_data = PackedInt32Array(2949167, 22, 0, 2949175, 22, 0, 2949159, 22, 0, 2949151, 22, 0, 2949183, 22, 0, 2949191, 23, 0, 2949143, 21, 0, 2949338, 15, 0, 2949346, 13, 0, 1900794, 13, 0, 1900802, 19, 0, 2425090, 24, 0, 2949378, 24, 0, 3473666, 24, 0, 3473626, 20, 0, 3997914, 20, 0, 3473634, 17, 0, 3473642, 17, 0, 2949362, 17, 0, 2425082, 17, 0, 2949370, 17, 0, 3473658, 17, 0, 3473650, 17, 0, 3997922, 17, 0, 3997930, 17, 0, 3997938, 17, 0, 3997946, 17, 0, 3997954, 24, 0, 2949354, 16, 0, 2425074, 16, 0, 2425066, 12, 0, 1900786, 12, 0, 4522215, 22, 0, 4522223, 22, 0, 4522231, 22, 0, 4522239, 22, 0, 4522247, 22, 0, 4522255, 23, 0, 3997915, 27, 0, 3997955, 27, 0, 4063490, 24, 0, 3670287, 2, 0, 3670291, 2, 0, 2949384, 3, 0, 2949380, 3, 0, 2294032, 2, 0, 2294036, 2, 0, 4522204, 21, 0, 4522212, 22, 0)
 
 [node name="Platform" parent="." instance=ExtResource("31_xub2v")]
-position = Vector2(272, 48)
+position = Vector2(277, 93)
 
 [node name="Platform2" parent="." instance=ExtResource("31_xub2v")]
 position = Vector2(348, 172)
@@ -292,8 +311,10 @@ libraries = {
 }
 autoplay = "move"
 
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Platform2"]
+
 [node name="Coin" parent="." instance=ExtResource("32_x5u8r")]
-position = Vector2(504, 144)
+position = Vector2(509, 189)
 
 [node name="Coin2" parent="." instance=ExtResource("32_x5u8r")]
-position = Vector2(946, 248)
+position = Vector2(951, 293)
