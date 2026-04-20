@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjkdv5yr4a3xt"]
+[gd_scene load_steps=4 format=3 uid="uid://cjkdv5yr4a3xt"]
 
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_8od7v"]
 [ext_resource type="Texture2D" uid="uid://gwrsb7nff4s4" path="res://icon.svg" id="2_qc4db"]
-[ext_resource type="PackedScene" uid="uid://bmo26yqfnrhku" path="res://Scenes/coin.tscn" id="2_ys1qc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lc1oi"]
 
@@ -20,7 +19,7 @@ position = Vector2(-109, 12)
 texture = ExtResource("2_qc4db")
 
 [node name="Icon2" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(106, 13)
+position = Vector2(118, 19)
 texture = ExtResource("2_qc4db")
 
 [node name="Icon3" type="Sprite2D" parent="StaticBody2D"]
@@ -31,11 +30,8 @@ texture = ExtResource("2_qc4db")
 position = Vector2(318, 13)
 texture = ExtResource("2_qc4db")
 
-[node name="Coin" parent="." instance=ExtResource("2_ys1qc")]
-position = Vector2(376, 144)
-
 [node name="Player" parent="." instance=ExtResource("1_8od7v")]
-position = Vector2(344, 128)
+position = Vector2(312, 120)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
