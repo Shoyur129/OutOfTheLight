@@ -1,0 +1,53 @@
+[gd_scene load_steps=10 format=3 uid="uid://bmo26yqfnrhku"]
+
+[ext_resource type="Texture2D" uid="uid://btpdrrcwex1s6" path="res://Assets/Tilesets/Medieval/PNG/Collectable Object/Coin_01.png" id="1_81h6x"]
+[ext_resource type="Script" uid="uid://ccb6ckah36jgv" path="res://scripts/coin.gd" id="1_qbp07"]
+[ext_resource type="Texture2D" uid="uid://dogv51ijox56n" path="res://Assets/Tilesets/Medieval/PNG/Collectable Object/Coin_02.png" id="2_qbp07"]
+[ext_resource type="Texture2D" uid="uid://bhplhvntfcmrj" path="res://Assets/Tilesets/Medieval/PNG/Collectable Object/Coin_03.png" id="3_2l7mo"]
+[ext_resource type="Texture2D" uid="uid://xn7gtt4vwapp" path="res://Assets/Tilesets/Medieval/PNG/Collectable Object/Coin_04.png" id="4_q30xt"]
+[ext_resource type="Texture2D" uid="uid://ccdwerk1ppv55" path="res://Assets/Tilesets/Medieval/PNG/Collectable Object/Coin_05.png" id="5_7w2r2"]
+[ext_resource type="Texture2D" uid="uid://c8cd0t3h1obxr" path="res://Assets/Tilesets/Medieval/PNG/Collectable Object/Coin_06.png" id="6_tthw5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6pu15"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_81h6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qbp07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2l7mo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q30xt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7w2r2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tthw5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgc30"]
+radius = 58.00862
+
+[node name="Coin" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+collision_mask = 2
+script = ExtResource("1_qbp07")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6pu15")
+autoplay = "default"
+frame_progress = 0.3803737
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vgc30")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
