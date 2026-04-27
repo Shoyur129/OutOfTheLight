@@ -266,7 +266,7 @@ _data = {
 [node name="Level 1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
-position = Vector2(885, 142)
+position = Vector2(901, 142)
 scale = Vector2(0.5, 0.5)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -296,4 +296,4 @@ autoplay = "move"
 position = Vector2(504, 144)
 
 [node name="Coin2" parent="." instance=ExtResource("32_x5u8r")]
-position = Vector2(946, 248)
+position = Vector2(983, 240)
