@@ -1,5 +1,6 @@
-[gd_scene load_steps=69 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=71 format=3 uid="uid://vy0rt7fokwpa"]
 
+[ext_resource type="Script" uid="uid://cvyru22mb4ypk" path="res://scripts/level_1.gd" id="1_bd6hb"]
 [ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://ccxfj1oejfci7" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_01.png" id="2_pm77i"]
@@ -35,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rpogghhwv76" path="res://Scenes/BigPlatform.tscn" id="31_xub2v"]
 [ext_resource type="PackedScene" uid="uid://bmo26yqfnrhku" path="res://Scenes/coin.tscn" id="32_x5u8r"]
 [ext_resource type="PackedScene" uid="uid://bpdst8fecdg14" path="res://Scenes/small_platorm.tscn" id="35_ts4pv"]
+[ext_resource type="PackedScene" uid="uid://dpy73qsxv7433" path="res://Scenes/fade_transition.tscn" id="37_x68w5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cocpr"]
 texture = ExtResource("2_pm77i")
@@ -268,6 +270,7 @@ _data = {
 
 [node name="Level 1" type="Node2D"]
 position = Vector2(-14, 487)
+script = ExtResource("1_bd6hb")
 
 [node name="Background01" type="Sprite2D" parent="."]
 position = Vector2(681, 178)
@@ -286,7 +289,7 @@ position = Vector2(2015, 178)
 texture = ExtResource("2_ts4pv")
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
-position = Vector2(125, 169)
+position = Vector2(125, 138)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -323,3 +326,9 @@ position = Vector2(951, 293)
 [node name="SmallPlatorm" parent="." instance=ExtResource("35_ts4pv")]
 position = Vector2(184, 152)
 scale = Vector2(0.35, 0.35)
+
+[node name="ColorRect" parent="." instance=ExtResource("37_x68w5")]
+offset_left = -267.0
+offset_top = -193.0
+offset_right = 897.0
+offset_bottom = 468.0
