@@ -1,36 +1,327 @@
-[gd_scene load_steps=5 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=70 format=3 uid="uid://vy0rt7fokwpa"]
 
-[ext_resource type="Script" uid="uid://c7y41detpa6hu" path="res://scripts/arrow.gd" id="1_8ffim"]
-[ext_resource type="Texture2D" uid="uid://c6p13yddfy7nr" path="res://Assets/Archer/Arrow.png" id="2_xfk5q"]
+[ext_resource type="Script" uid="uid://cvyru22mb4ypk" path="res://scripts/level_1.gd" id="1_bd6hb"]
+[ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
+[ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_vk57k"]
+[ext_resource type="Texture2D" uid="uid://ccxfj1oejfci7" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_01.png" id="2_pm77i"]
+[ext_resource type="Texture2D" uid="uid://4kv5iwlu3dhp" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_02.png" id="2_ts4pv"]
+[ext_resource type="Texture2D" uid="uid://teyyof5vm7th" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_02.png" id="3_xub2v"]
+[ext_resource type="Texture2D" uid="uid://cvg1tkg8r2jud" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_06.png" id="4_x5u8r"]
+[ext_resource type="Texture2D" uid="uid://csjrbmkdfftv4" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_07.png" id="5_nwpk5"]
+[ext_resource type="Texture2D" uid="uid://djonkqiwra5e1" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_01.png" id="6_lk3dh"]
+[ext_resource type="Texture2D" uid="uid://cb6i4olr8yljs" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_02.png" id="7_ts4pv"]
+[ext_resource type="Texture2D" uid="uid://1ayk1cfyrwx6" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_03.png" id="8_7sml1"]
+[ext_resource type="Texture2D" uid="uid://odijp8gvxuh7" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_04.png" id="9_bd6hb"]
+[ext_resource type="Texture2D" uid="uid://cdfiywdixmmwr" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_05.png" id="10_x68w5"]
+[ext_resource type="Texture2D" uid="uid://cxwjw0givsokg" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_06.png" id="11_vyomg"]
+[ext_resource type="Texture2D" uid="uid://c48mnik7vtq2u" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_07.png" id="12_xcdlm"]
+[ext_resource type="Texture2D" uid="uid://c3ui8wkve74ch" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_08.png" id="13_bvyvf"]
+[ext_resource type="Texture2D" uid="uid://dhqca6vg1mvhf" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Bridge_01.png" id="14_ltqn3"]
+[ext_resource type="Texture2D" uid="uid://ngwfc7xtk86m" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_09.png" id="15_0wb0u"]
+[ext_resource type="Texture2D" uid="uid://jtlgxfrvr3bk" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_10.png" id="16_wlonh"]
+[ext_resource type="Texture2D" uid="uid://5bk30if6leyd" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_11.png" id="17_s764c"]
+[ext_resource type="Texture2D" uid="uid://tm7ux2ecbg27" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_12.png" id="18_kpjai"]
+[ext_resource type="Texture2D" uid="uid://cx5fbpmjrd70i" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground_13.png" id="19_yaxpm"]
+[ext_resource type="Texture2D" uid="uid://cskk2v1owjh61" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ladder.png" id="20_8f0cu"]
+[ext_resource type="Texture2D" uid="uid://c44fbhfcnasm2" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Spikes.png" id="21_g6dp3"]
+[ext_resource type="Texture2D" uid="uid://d1b3r4lepqnji" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Wooden_Barrel.png" id="22_5ceot"]
+[ext_resource type="Texture2D" uid="uid://bxbsb11kodl0x" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Wooden_Box.png" id="23_lcsmq"]
+[ext_resource type="Texture2D" uid="uid://thiabkkwlsy4" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Bridge_02.png" id="24_hv30f"]
+[ext_resource type="Texture2D" uid="uid://bk8aatxnsuifh" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Decor_Brick.png" id="25_v6i5l"]
+[ext_resource type="Texture2D" uid="uid://33yeua0deyfi" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_01.png" id="26_nx6ne"]
+[ext_resource type="Texture2D" uid="uid://ccws1jup80hbb" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_02.png" id="27_mdi36"]
+[ext_resource type="Texture2D" uid="uid://rscx2pymx0f" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_03.png" id="28_h3d7q"]
+[ext_resource type="Texture2D" uid="uid://b8jevvsjy1s0p" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_04.png" id="29_6axy7"]
+[ext_resource type="Texture2D" uid="uid://b4lgjdvbqvu15" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_05.png" id="30_wnaei"]
+[ext_resource type="PackedScene" uid="uid://c3rpogghhwv76" path="res://Scenes/BigPlatform.tscn" id="31_xub2v"]
+[ext_resource type="PackedScene" uid="uid://bmo26yqfnrhku" path="res://Scenes/coin.tscn" id="32_x5u8r"]
+[ext_resource type="PackedScene" uid="uid://bpdst8fecdg14" path="res://Scenes/small_platorm.tscn" id="35_ts4pv"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6a6ax"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_xfk5q")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cocpr"]
+texture = ExtResource("2_pm77i")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58, -56.5, 58, -54.5, 57, 52.5, -57, 51.5)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndhl"]
-size = Vector2(126, 9)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hhyfv"]
+texture = ExtResource("3_xub2v")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-61, -64, 61, -59, 61, 62, -62, 61)
 
-[node name="Arrow" type="Area2D"]
-scale = Vector2(0.2, 0.2)
-collision_layer = 8
-collision_mask = 2
-script = ExtResource("1_8ffim")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpel7"]
+texture = ExtResource("4_x5u8r")
+texture_region_size = Vector2i(128, 320)
+0:0/0 = 0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6a6ax")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c1od4"]
+texture = ExtResource("5_nwpk5")
+texture_region_size = Vector2i(320, 320)
+0:0/0 = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 0.5)
-shape = SubResource("RectangleShape2D_2ndhl")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_taa1k"]
+texture = ExtResource("6_lk3dh")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.35972595, -0.8093643, 64.02971, -64.83907, 63.669983, 63.58006, -64.38943, 63.75992)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i7abj"]
+texture = ExtResource("7_ts4pv")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63.849854, -63.93978, 63.669983, -63.93978, 63.407516, 62.929577, -63.088898, 63.248203)
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oxpbw"]
+texture = ExtResource("8_7sml1")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63.72615, 64.36341, -64.044785, -65.319305, 1.5931549, 0.95588684, 64.04477, 64.04478)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eh1ed"]
+texture = ExtResource("9_bd6hb")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -67, 64, -66, 63, 7, 63, 64, -11, 66, -60, -3)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_olpot"]
+texture = ExtResource("10_x68w5")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghgdn"]
+texture = ExtResource("11_vyomg")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w6q3x"]
+texture = ExtResource("12_xcdlm")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_soyxa"]
+texture = ExtResource("13_bvyvf")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -67, 64, -66, 53, 6, 17, 64, -65, 63, -65, -1)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yy84a"]
+texture = ExtResource("14_ltqn3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 30, -16, 31, 16, -29, 14)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4qhvg"]
+texture = ExtResource("15_0wb0u")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tohvi"]
+texture = ExtResource("16_wlonh")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62, -65, 64, -66, 63, 4, 63, 64, -11, 52, -56, 2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t405x"]
+texture = ExtResource("17_s764c")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-66, -67, 64, -66, 63, 4, 63, 64, -66, 64, -66, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rby12"]
+texture = ExtResource("18_kpjai")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 61, -64, 57, 5, 15, 52, -66, 64, -66, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lue1o"]
+texture = ExtResource("19_yaxpm")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8vhy"]
+texture = ExtResource("20_8f0cu")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r5dji"]
+texture = ExtResource("21_g6dp3")
+texture_region_size = Vector2i(128, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-55, -27, 60, -27, 63, 8, 65, 32, -69, 32, -66, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d8dne"]
+texture = ExtResource("22_5ceot")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jgxx"]
+texture = ExtResource("23_lcsmq")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npx7t"]
+texture = ExtResource("24_hv30f")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -16, 30, -16, 31, 16, -29, 14)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrg37"]
+texture = ExtResource("25_v6i5l")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-58, -59, 61, -59, 59, 63, -58, 59)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3b7j"]
+texture = ExtResource("26_nx6ne")
+texture_region_size = Vector2i(320, 320)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6dg34"]
+texture = ExtResource("27_mdi36")
+texture_region_size = Vector2i(320, 320)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_atnal"]
+texture = ExtResource("28_h3d7q")
+texture_region_size = Vector2i(320, 320)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cxt5f"]
+texture = ExtResource("29_6axy7")
+texture_region_size = Vector2i(320, 320)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w3b8v"]
+texture = ExtResource("30_wnaei")
+texture_region_size = Vector2i(128, 320)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u8waq"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_cocpr")
+sources/1 = SubResource("TileSetAtlasSource_hhyfv")
+sources/2 = SubResource("TileSetAtlasSource_yy84a")
+sources/3 = SubResource("TileSetAtlasSource_npx7t")
+sources/4 = SubResource("TileSetAtlasSource_wrg37")
+sources/5 = SubResource("TileSetAtlasSource_x3b7j")
+sources/6 = SubResource("TileSetAtlasSource_6dg34")
+sources/7 = SubResource("TileSetAtlasSource_atnal")
+sources/8 = SubResource("TileSetAtlasSource_cxt5f")
+sources/9 = SubResource("TileSetAtlasSource_w3b8v")
+sources/10 = SubResource("TileSetAtlasSource_jpel7")
+sources/11 = SubResource("TileSetAtlasSource_c1od4")
+sources/12 = SubResource("TileSetAtlasSource_taa1k")
+sources/13 = SubResource("TileSetAtlasSource_i7abj")
+sources/14 = SubResource("TileSetAtlasSource_oxpbw")
+sources/15 = SubResource("TileSetAtlasSource_eh1ed")
+sources/16 = SubResource("TileSetAtlasSource_olpot")
+sources/17 = SubResource("TileSetAtlasSource_ghgdn")
+sources/18 = SubResource("TileSetAtlasSource_w6q3x")
+sources/19 = SubResource("TileSetAtlasSource_soyxa")
+sources/20 = SubResource("TileSetAtlasSource_4qhvg")
+sources/21 = SubResource("TileSetAtlasSource_tohvi")
+sources/22 = SubResource("TileSetAtlasSource_t405x")
+sources/23 = SubResource("TileSetAtlasSource_rby12")
+sources/24 = SubResource("TileSetAtlasSource_lue1o")
+sources/25 = SubResource("TileSetAtlasSource_w8vhy")
+sources/26 = SubResource("TileSetAtlasSource_r5dji")
+sources/27 = SubResource("TileSetAtlasSource_d8dne")
+sources/28 = SubResource("TileSetAtlasSource_0jgxx")
+
+[sub_resource type="Animation" id="Animation_x5u8r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(348, 172)]
+}
+
+[sub_resource type="Animation" id="Animation_xub2v"]
+resource_name = "move"
+length = 3.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(353, 217), Vector2(820, 217)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nwpk5"]
+_data = {
+&"RESET": SubResource("Animation_x5u8r"),
+&"move": SubResource("Animation_xub2v")
+}
+
+[node name="Level 1" type="Node2D"]
+position = Vector2(-14, 487)
+script = ExtResource("1_bd6hb")
+
+[node name="Background01" type="Sprite2D" parent="."]
+position = Vector2(681, 178)
+texture = ExtResource("1_lk3dh")
+
+[node name="Background02" type="Sprite2D" parent="."]
+position = Vector2(681, 178)
+texture = ExtResource("2_ts4pv")
+
+[node name="Background03" type="Sprite2D" parent="."]
+position = Vector2(2015, 178)
+texture = ExtResource("1_lk3dh")
+
+[node name="Background04" type="Sprite2D" parent="."]
+position = Vector2(2015, 178)
+texture = ExtResource("2_ts4pv")
+
+[node name="Player" parent="." instance=ExtResource("1_vk57k")]
+position = Vector2(125, 138)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_bottom = 1040
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(7, 45)
+scale = Vector2(0.25, 0.25)
+tile_set = SubResource("TileSet_u8waq")
+format = 2
+layer_0/tile_data = PackedInt32Array(2949167, 22, 0, 2949175, 22, 0, 2949159, 22, 0, 2949151, 22, 0, 2949183, 22, 0, 2949191, 23, 0, 2949143, 21, 0, 2949338, 15, 0, 2949346, 13, 0, 1900794, 13, 0, 1900802, 19, 0, 2425090, 24, 0, 2949378, 24, 0, 3473666, 24, 0, 3473626, 20, 0, 3997914, 20, 0, 3473634, 17, 0, 3473642, 17, 0, 2949362, 17, 0, 2425082, 17, 0, 2949370, 17, 0, 3473658, 17, 0, 3473650, 17, 0, 3997922, 17, 0, 3997930, 17, 0, 3997938, 17, 0, 3997946, 17, 0, 3997954, 24, 0, 2949354, 16, 0, 2425074, 16, 0, 2425066, 12, 0, 1900786, 12, 0, 4522215, 22, 0, 4522223, 22, 0, 4522231, 22, 0, 4522239, 22, 0, 4522247, 22, 0, 4522255, 23, 0, 3997915, 27, 0, 3997955, 27, 0, 4063490, 24, 0, 3670287, 2, 0, 3670291, 2, 0, 2949384, 3, 0, 2949380, 3, 0, 2294032, 2, 0, 2294036, 2, 0, 4522204, 21, 0, 4522212, 22, 0, 4653416, 19, 0, 4653408, 15, 0, 5177696, 20, 0, 5701984, 20, 0, 6226272, 20, 0, 6226280, 24, 0, 5701992, 24, 0, 5177704, 24, 0)
+
+[node name="Platform" parent="." instance=ExtResource("31_xub2v")]
+position = Vector2(277, 93)
+
+[node name="Platform2" parent="." instance=ExtResource("31_xub2v")]
+position = Vector2(348, 172)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+libraries = {
+&"": SubResource("AnimationLibrary_nwpk5")
+}
+autoplay = "move"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="Platform2"]
+
+[node name="Coin" parent="." instance=ExtResource("32_x5u8r")]
+position = Vector2(509, 189)
+
+[node name="Coin2" parent="." instance=ExtResource("32_x5u8r")]
+position = Vector2(951, 293)
+
+[node name="SmallPlatorm" parent="." instance=ExtResource("35_ts4pv")]
+position = Vector2(184, 152)
+scale = Vector2(0.35, 0.35)

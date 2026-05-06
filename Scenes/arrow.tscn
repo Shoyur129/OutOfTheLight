@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://na37ko2aq3t0"]
+[gd_scene load_steps=5 format=3 uid="uid://dsnlcpph4330i"]
 
-[ext_resource type="Script" uid="uid://c7y41detpa6hu" path="res://scripts/arrow.gd" id="1_h5x2m"]
+[ext_resource type="Script" uid="uid://c7y41detpa6hu" path="res://scripts/arrow.gd" id="1_2ndhl"]
 [ext_resource type="Texture2D" uid="uid://c6p13yddfy7nr" path="res://Assets/Archer/Arrow.png" id="2_acd0x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6a6ax"]
@@ -15,19 +15,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndhl"]
-size = Vector2(126, 9)
+size = Vector2(135, 25)
 
 [node name="Arrow" type="Area2D"]
 scale = Vector2(0.2, 0.2)
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("1_h5x2m")
+script = ExtResource("1_2ndhl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6a6ax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 0.5)
+position = Vector2(2.50001, 2.5)
 shape = SubResource("RectangleShape2D_2ndhl")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
