@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var arrow_scene: PackedScene
 @export var move_speed: float = 30.0
 @export var patrol_distance: float = 80.0
 @export var health: int = 3
@@ -14,12 +15,13 @@ var moving_right: bool = true
 var player_in_range: bool = false
 var is_dead: bool = false
 var is_hurt: bool = false
+var player_ref: Node2D = null
 
 func _ready() -> void:
 	start_position = global_position
 	sprite.play("idle")
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	if is_dead:
 		velocity = Vector2.ZERO
 		move_and_slide()
@@ -34,7 +36,7 @@ func _physics_process(delta: float):
 			patrol()
 			move_and_slide()
 
-func patrol() -> void:
+func patrol():
 	if moving_right:
 		velocity.x = move_speed
 		sprite.flip_h = false
@@ -47,11 +49,11 @@ func patrol() -> void:
 		moving_right = true
 		play_animation_if_not_playing("Walking")
 
-func attack_player() -> void:
+func attack_player():
 	velocity.x = 0
 	play_animation_if_not_playing("Shooting")
 
-func take_damage(amount: int) -> void:
+func take_damage(amount: int):
 	if is_dead:
 		return
 		health -= amount
@@ -60,12 +62,12 @@ func take_damage(amount: int) -> void:
 	else:
 		play_hurt()
 
-func play_hurt() -> void:
+func play_hurt():
 	is_hurt = true
 	velocity = Vector2.ZERO
 	sprite.play("Hurt")
 
-func die() -> void:
+func die():
 	is_dead = true
 	velocity = Vector2.ZERO
 	sprite.play("Dying")
@@ -75,18 +77,28 @@ func play_animation_if_not_playing(anim_name: String):
 		sprite.play(anim_name)
 
 func _on_detection_area_body_entered(body: Node):
-	if body.is_in_group("player"):
+	if body.name == "Player" or body.is_in_group("player"):
 		player_in_range = true
+		player_ref = body
 		shoot_timer.start()
 
 func _on_detection_area_body_exited(body: Node):
-	if body.is_in_group("player"):
+	if body.name == "Player" or body.is_in_group("player"):
 		player_in_range = false
+		player_ref = null
 		shoot_timer.stop()
 
 func _on_shoot_timer_timeout():
 	if is_dead:
 		return
+	if player_in_range and player_ref != null and arrow_scene != null:
+		var arrow = arrow_scene.instantiate()
+		get_parent().add_child(arrow)
+		arrow.global_position = shoot_point.global_position
+		var shoot_direction = (player_ref.global_position - shoot_point.global_position).normalized()
+		if arrow.has_method("set_direction"):
+			arrow.set_direction(shoot_direction)
+		sprite.play("Shooting")
 	if player_in_range:
 		print("Archer attacks from ShootPoint")
 

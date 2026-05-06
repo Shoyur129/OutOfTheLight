@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 45.0
+@export var arrow_scene: PackedScene
+@export var move_speed: float = 100.0
 @export var patrol_distance: float = 120.0
 @export var health: int = 5
 @export var chase_speed: float = 55.0
@@ -106,13 +107,13 @@ func play_animation_if_not_playing(anim_name: String) -> void:
 		sprite.play(anim_name)
 
 func _on_detection_area_body_entered(body: Node) -> void:
-	if body.is_in_group("player"):
+	if body.name == "Player" or body.is_in_group("player"):
 		player_in_range = true
 		player_ref = body as Node2D
 		shoot_timer.start()
 
 func _on_detection_area_body_exited(body: Node) -> void:
-	if body.is_in_group("player"):
+	if body.name == "Player" or body.is_in_group("player"):
 		player_in_range = false
 		player_ref = null
 		shoot_timer.stop()
@@ -120,6 +121,14 @@ func _on_detection_area_body_exited(body: Node) -> void:
 func _on_shoot_timer_timeout() -> void:
 	if is_dead:
 		return
+	if player_in_range and player_ref != null and arrow_scene != null:
+		var arrow = arrow_scene.instantiate()
+		get_parent().add_child(arrow)
+		arrow.global_position = shoot_point.global_position
+		var shoot_direction = (player_ref.global_position - shoot_point.global_position).normalized()
+		if arrow.has_method("set_direction"):
+			arrow.set_direction(shoot_direction)
+		sprite.play("Shooting")
 	if player_in_range and player_ref != null:
 		print("Archer 2 shoots from ShootPoint")
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjkdv5yr4a3xt"]
+[gd_scene load_steps=6 format=3 uid="uid://cjkdv5yr4a3xt"]
 
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_8od7v"]
 [ext_resource type="Texture2D" uid="uid://gwrsb7nff4s4" path="res://icon.svg" id="2_qc4db"]
-[ext_resource type="PackedScene" uid="uid://b7n83q8h81r0d" path="res://Scenes/archer_1.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://cdtgbgwtukg0x" path="res://Scenes/Vampire.tscn" id="2_ys1qc"]
+[ext_resource type="PackedScene" uid="uid://slckmi78yr5o" path="res://Scenes/archer_1.tscn" id="3_qc4db"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lc1oi"]
 
@@ -31,6 +32,10 @@ texture = ExtResource("2_qc4db")
 position = Vector2(318, 13)
 texture = ExtResource("2_qc4db")
 
+[node name="Vampire" parent="StaticBody2D" instance=ExtResource("2_ys1qc")]
+position = Vector2(-106, -77)
+scale = Vector2(0.23, 0.23)
+
 [node name="Player" parent="." instance=ExtResource("1_8od7v")]
 position = Vector2(280, 136)
 
@@ -38,5 +43,5 @@ position = Vector2(280, 136)
 zoom = Vector2(2, 2)
 
 [node name="Archer1" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(96, 136)
-scale = Vector2(0.25, 0.25)
+position = Vector2(168, 136)
+scale = Vector2(0.23, 0.23)

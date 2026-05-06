@@ -1,9 +1,10 @@
-[gd_scene load_steps=184 format=3 uid="uid://b7n83q8h81r0d"]
+[gd_scene load_steps=185 format=3 uid="uid://slckmi78yr5o"]
 
-[ext_resource type="Script" path="res://scripts/archer_1.gd" id="1_1jq1l"]
+[ext_resource type="Script" uid="uid://djheoyit608bc" path="res://scripts/archer_1.gd" id="1_1jq1l"]
 [ext_resource type="Texture2D" uid="uid://mqrxa7vgihm2" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Idle/0_Archer_Idle_000.png" id="1_fu5s7"]
 [ext_resource type="Texture2D" uid="uid://ih6u5vnswctq" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Dying/0_Archer_Dying_000.png" id="1_lr0ev"]
 [ext_resource type="Texture2D" uid="uid://21tm0qiw0tfo" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Idle/0_Archer_Idle_001.png" id="2_40q8g"]
+[ext_resource type="PackedScene" uid="uid://na37ko2aq3t0" path="res://Scenes/arrow.tscn" id="2_dy8tc"]
 [ext_resource type="Texture2D" uid="uid://d4ae0ct8isyae" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Dying/0_Archer_Dying_001.png" id="2_sw20d"]
 [ext_resource type="Texture2D" uid="uid://b82xfd5hd5285" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Dying/0_Archer_Dying_002.png" id="3_7vapx"]
 [ext_resource type="Texture2D" uid="uid://bu1qpmlr3je6p" path="res://Assets/Archer/Archer_1/PNG/PNG Sequences/Idle/0_Archer_Idle_003.png" id="3_dbcvd"]
@@ -596,7 +597,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Shooting",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -808,12 +809,15 @@ size = Vector2(729.5, 120)
 
 [node name="Archer1" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
+collision_mask = 2
 script = ExtResource("1_1jq1l")
+arrow_scene = ExtResource("2_dy8tc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_pyxx8")
-animation = &"idle"
+animation = &"Shooting"
+frame_progress = 0.7789029
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -821,15 +825,21 @@ position = Vector2(-5, 12)
 shape = SubResource("CapsuleShape2D_fu5s7")
 
 [node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(26, 50)
 
 [node name="DetectionArea" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(307.25, 38)
+position = Vector2(312, 36)
 shape = SubResource("RectangleShape2D_antn0")
 
 [node name="ShootTimer" type="Timer" parent="."]
-wait_time = 1.5
+wait_time = 0.8
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+
+[node name="RayRight" type="RayCast2D" parent="."]
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

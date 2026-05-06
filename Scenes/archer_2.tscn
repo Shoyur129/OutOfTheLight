@@ -1,7 +1,8 @@
-[gd_scene load_steps=188 format=3 uid="uid://dj54pjgy7rdqb"]
+[gd_scene load_steps=189 format=3 uid="uid://dwx40mqq4f22e"]
 
 [ext_resource type="Script" uid="uid://c8t217m6evgvd" path="res://scripts/archer_2.gd" id="1_kq6uh"]
 [ext_resource type="Texture2D" uid="uid://prvm1krjac8p" path="res://Assets/Archer/Archer_2/PNG/PNG Sequences/Dying/0_Archer_Dying_000.png" id="1_qkolv"]
+[ext_resource type="PackedScene" uid="uid://na37ko2aq3t0" path="res://Scenes/arrow.tscn" id="2_ethp1"]
 [ext_resource type="Texture2D" uid="uid://dqhq5qp5orcv8" path="res://Assets/Archer/Archer_2/PNG/PNG Sequences/Dying/0_Archer_Dying_001.png" id="2_vyov0"]
 [ext_resource type="Texture2D" uid="uid://bp3rcnojvextw" path="res://Assets/Archer/Archer_2/PNG/PNG Sequences/Dying/0_Archer_Dying_002.png" id="3_wmsqc"]
 [ext_resource type="Texture2D" uid="uid://dlqft025qpyy3" path="res://Assets/Archer/Archer_2/PNG/PNG Sequences/Dying/0_Archer_Dying_003.png" id="4_kaw1e"]
@@ -820,7 +821,9 @@ height = 176.0
 size = Vector2(673, 96)
 
 [node name="Archer_2" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_kq6uh")
+arrow_scene = ExtResource("2_ethp1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
@@ -832,6 +835,7 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_f33qj")
 
 [node name="ShootPoint" type="Marker2D" parent="."]
+position = Vector2(44, 32)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 position = Vector2(-3, 2)
@@ -846,6 +850,11 @@ wait_time = 1.2
 [node name="TurnTimer" type="Timer" parent="."]
 wait_time = 0.6
 one_shot = true
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+
+[node name="RayRight" type="RayCast2D" parent="."]
+position = Vector2(1, 18)
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
