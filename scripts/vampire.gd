@@ -19,7 +19,7 @@ func _ready():
 	attack_timer.wait_time = 1.5
 	attack_timer.start()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if is_dead:
 		return
 	if player_in_range and player != null:
