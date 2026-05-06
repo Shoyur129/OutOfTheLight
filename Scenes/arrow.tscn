@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://na37ko2aq3t0"]
 
-[ext_resource type="Script" path="res://scripts/arrow.gd" id="1_h5x2m"]
+[ext_resource type="Script" uid="uid://c7y41detpa6hu" path="res://scripts/arrow.gd" id="1_h5x2m"]
 [ext_resource type="Texture2D" uid="uid://c6p13yddfy7nr" path="res://Assets/Archer/Arrow.png" id="2_acd0x"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6a6ax"]

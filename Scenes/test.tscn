@@ -1,47 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjkdv5yr4a3xt"]
+[gd_scene load_steps=5 format=3 uid="uid://cjkdv5yr4a3xt"]
 
-[ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_8od7v"]
-[ext_resource type="Texture2D" uid="uid://gwrsb7nff4s4" path="res://icon.svg" id="2_qc4db"]
-[ext_resource type="PackedScene" uid="uid://cdtgbgwtukg0x" path="res://Scenes/Vampire.tscn" id="2_ys1qc"]
-[ext_resource type="PackedScene" uid="uid://slckmi78yr5o" path="res://Scenes/archer_1.tscn" id="3_qc4db"]
+[ext_resource type="Script" uid="uid://c7y41detpa6hu" path="res://scripts/arrow.gd" id="1_8od7v"]
+[ext_resource type="Texture2D" uid="uid://c6p13yddfy7nr" path="res://Assets/Archer/Arrow.png" id="2_qc4db"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lc1oi"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_6a6ax"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qc4db")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="test" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndhl"]
+size = Vector2(126, 9)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(354, 213)
+[node name="Arrow" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_8od7v")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(1, -54)
-shape = SubResource("WorldBoundaryShape2D_lc1oi")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6a6ax")
 
-[node name="Icon" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-109, 12)
-texture = ExtResource("2_qc4db")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0.5)
+shape = SubResource("RectangleShape2D_2ndhl")
 
-[node name="Icon2" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(118, 19)
-texture = ExtResource("2_qc4db")
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="Icon3" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-308, 13)
-texture = ExtResource("2_qc4db")
-
-[node name="Icon4" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(318, 13)
-texture = ExtResource("2_qc4db")
-
-[node name="Vampire" parent="StaticBody2D" instance=ExtResource("2_ys1qc")]
-position = Vector2(-106, -77)
-scale = Vector2(0.23, 0.23)
-
-[node name="Player" parent="." instance=ExtResource("1_8od7v")]
-position = Vector2(280, 136)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-
-[node name="Archer1" parent="." instance=ExtResource("3_qc4db")]
-position = Vector2(168, 136)
-scale = Vector2(0.23, 0.23)
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
