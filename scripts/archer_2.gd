@@ -25,7 +25,7 @@ func _ready() -> void:
 	start_position = global_position
 	sprite.play("idle")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if is_dead:
 		velocity = Vector2.ZERO
 		move_and_slide()
