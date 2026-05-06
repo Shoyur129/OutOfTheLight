@@ -1,46 +1,73 @@
 extends CharacterBody2D
 
 
-const SPEED = 150.0
-const JUMP_VELOCITY = -350.0
+const SPEED: float = 150.0
+const JUMP_VELOCITY: float = -350.0
 
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+@export var health: int = 5
 
-@onready var animated_sprite = $AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-var health := 5
+var is_dead: bool = false
+var is_hurt: bool = false
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
+func _ready():
+	add_to_group("player")
+	sprite.play("Idle")
+
+func _physics_process(delta: float):
+	if is_dead:
+		return
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# flip the sprite based on movement direction
-	var direction := Input.get_axis("move_left", "move_right")
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
-
-	# Set the animation based on movement and state
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("Idle")
-		else:
-			animated_sprite.play("Run")
-	else:
-		animated_sprite.play("Jump")
-
+	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * SPEED
+		if direction < 0:
+			sprite.flip_h = true
+		elif direction > 0:
+			sprite.flip_h = false
+		if is_on_floor() and not is_hurt:
+			sprite.play("Running")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+		if is_on_floor() and not is_hurt:
+			sprite.play("Idle")
+	if not is_on_floor() and not is_hurt:
+		sprite.play("Jump Loop")
 	move_and_slide()
 
-func get_damage(damage: int):
-	health -= damage
+func take_damage(amount: int = 1):
+	if is_dead:
+		return
+	health -= amount
+	print("Player health: ", health)
+	if health <= 0:
+		die()
+	else:
+		hurt()
+
+func get_damage(damage: int = 1):
+	take_damage(damage)
+
+func hurt() -> void:
+	is_hurt = true
+	if sprite.sprite_frames.has_animation("Hurt"):
+		sprite.play("Hurt")
+
+func die():
+	is_dead = true
+	velocity = Vector2.ZERO
+	if sprite.sprite_frames.has_animation("Dying"):
+		sprite.play("Dying")
+	else:
+		queue_free()
+
+func _on_animated_sprite_2d_animation_finished():
+	if sprite.animation == "Hurt":
+		is_hurt = false
+	elif sprite.animation == "Dying":
+		queue_free()

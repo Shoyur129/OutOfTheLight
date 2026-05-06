@@ -1,36 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkgghwrogueke"]
+[gd_scene load_steps=3 format=3 uid="uid://bkgghwrogueke"]
 
-[ext_resource type="Script" uid="uid://c7y41detpa6hu" path="res://scripts/arrow.gd" id="1_iyfga"]
-[ext_resource type="Texture2D" uid="uid://c6p13yddfy7nr" path="res://Assets/Archer/Arrow.png" id="2_ca4vh"]
+[ext_resource type="Script" uid="uid://q644p8cs827n" path="res://scripts/killzone.gd" id="1_jvagm"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_6a6ax"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_ca4vh")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rli2t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndhl"]
-size = Vector2(126, 9)
-
-[node name="Arrow" type="Area2D"]
-scale = Vector2(0.2, 0.2)
-collision_layer = 8
-collision_mask = 2
-script = ExtResource("1_iyfga")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_6a6ax")
+[node name="Killzone" type="Area2D"]
+script = ExtResource("1_jvagm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 0.5)
-shape = SubResource("RectangleShape2D_2ndhl")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+shape = SubResource("WorldBoundaryShape2D_rli2t")
