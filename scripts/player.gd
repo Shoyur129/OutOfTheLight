@@ -5,7 +5,6 @@ const SPEED: float = 150.0
 const JUMP_VELOCITY: float = -375.0
 
 @export var health: int = 5
-
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var is_dead: bool = false

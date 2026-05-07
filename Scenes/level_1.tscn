@@ -1,10 +1,11 @@
-[gd_scene load_steps=93 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=160 format=3 uid="uid://vy0rt7fokwpa"]
 
 [ext_resource type="Script" uid="uid://cvyru22mb4ypk" path="res://scripts/level_1.gd" id="1_bd6hb"]
 [ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_vk57k"]
 [ext_resource type="Texture2D" uid="uid://ccxfj1oejfci7" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_01.png" id="2_pm77i"]
 [ext_resource type="Texture2D" uid="uid://4kv5iwlu3dhp" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_02.png" id="2_ts4pv"]
+[ext_resource type="Script" uid="uid://bey5ffbw3fgtl" path="res://scripts/game_manager.gd" id="2_yy7ss"]
 [ext_resource type="Texture2D" uid="uid://teyyof5vm7th" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Brick_02.png" id="3_xub2v"]
 [ext_resource type="Texture2D" uid="uid://cvg1tkg8r2jud" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_06.png" id="4_x5u8r"]
 [ext_resource type="Texture2D" uid="uid://csjrbmkdfftv4" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_07.png" id="5_nwpk5"]
@@ -54,7 +55,42 @@
 [ext_resource type="Texture2D" uid="uid://c7ehufnvmaabs" path="res://Assets/Tilesets/Medieval/PNG/Environment/Sign_01.png" id="49_hv30f"]
 [ext_resource type="PackedScene" uid="uid://dqeexwsddineo" path="res://Scenes/spikes.tscn" id="50_v6i5l"]
 [ext_resource type="Texture2D" uid="uid://brevuop3ttjxk" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Environment/Sign_03.png" id="54_mdi36"]
+[ext_resource type="Texture2D" uid="uid://c3bpqrtnhnchl" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Bonus.png" id="54_nvvmv"]
+[ext_resource type="PackedScene" uid="uid://b80pv0nwuao07" path="res://Scenes/portal.tscn" id="55_6axy7"]
 [ext_resource type="Texture2D" uid="uid://cpe3r1bjcibx0" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Environment/Lampade.png" id="55_h3d7q"]
+[ext_resource type="Texture2D" uid="uid://cvt4lg6jwgwgd" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Brick_01.png" id="55_yy7ss"]
+[ext_resource type="Texture2D" uid="uid://3pl14wwt1vhy" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_05.png" id="56_a6lkv"]
+[ext_resource type="Texture2D" uid="uid://cvthcok4cnfww" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_06.png" id="57_jwru3"]
+[ext_resource type="Texture2D" uid="uid://cay1avg06pqdc" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_01.png" id="57_wnaei"]
+[ext_resource type="Texture2D" uid="uid://xppihoxpp0wn" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_02.png" id="58_cocpr"]
+[ext_resource type="Texture2D" uid="uid://nqby76dw7cr7" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_07.png" id="58_vesd6"]
+[ext_resource type="PackedScene" uid="uid://hwe5yep2qfyn" path="res://Scenes/score.tscn" id="59_hhyfv"]
+[ext_resource type="Texture2D" uid="uid://bx3rdit6iw3ao" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_01.png" id="59_x2ai2"]
+[ext_resource type="Texture2D" uid="uid://d3k5v1v32a3kf" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_02.png" id="60_1qp6s"]
+[ext_resource type="PackedScene" uid="uid://bv4pm3tr4xupn" path="res://Scenes/health.tscn" id="60_jpel7"]
+[ext_resource type="Texture2D" uid="uid://csq3mskr7oaeu" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_03.png" id="61_47bk8"]
+[ext_resource type="Texture2D" uid="uid://dk1nv3qkrve5t" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_04.png" id="62_ccdby"]
+[ext_resource type="Texture2D" uid="uid://c8vlmk384xpad" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_05.png" id="63_3xv1y"]
+[ext_resource type="Texture2D" uid="uid://bplwt3xhd4uxn" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_06.png" id="64_yqakh"]
+[ext_resource type="Texture2D" uid="uid://ch6erh51ll002" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_07.png" id="65_cgw15"]
+[ext_resource type="Texture2D" uid="uid://dli6uaanhpyen" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Brick_02.png" id="66_515xq"]
+[ext_resource type="Texture2D" uid="uid://dw8friqf678nw" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_08.png" id="67_7me5w"]
+[ext_resource type="Texture2D" uid="uid://btd82qu1kalko" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_09.png" id="68_xokrd"]
+[ext_resource type="Texture2D" uid="uid://r0mpm206e8um" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_10.png" id="69_d08dg"]
+[ext_resource type="Texture2D" uid="uid://giooavdygn7i" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_11.png" id="70_4udnt"]
+[ext_resource type="Texture2D" uid="uid://dr0ro3sbejuds" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_12.png" id="71_enyo0"]
+[ext_resource type="Texture2D" uid="uid://7nw1c8enjn4m" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground_13.png" id="72_3id4y"]
+[ext_resource type="Texture2D" uid="uid://prayseji28ju" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ladder.png" id="73_qgr3v"]
+[ext_resource type="Texture2D" uid="uid://lt8sa3u0i8k8" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Spikes.png" id="74_m45or"]
+[ext_resource type="Texture2D" uid="uid://cxwo6rwj01n70" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Wooden_Barrel.png" id="75_54lcq"]
+[ext_resource type="Texture2D" uid="uid://8ae4bu8a238n" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Wooden_Box.png" id="76_re70m"]
+[ext_resource type="Texture2D" uid="uid://psnxhf0wgdhd" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Bridge_01.png" id="77_73j5b"]
+[ext_resource type="Texture2D" uid="uid://cb4at5s40cs8p" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Bridge_02.png" id="78_62cx3"]
+[ext_resource type="Texture2D" uid="uid://c7c71i5gxk0l4" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Decor_Brick.png" id="79_ho6uo"]
+[ext_resource type="Texture2D" uid="uid://cvq4qpjc81pco" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_01.png" id="80_0yaw2"]
+[ext_resource type="Texture2D" uid="uid://d1b4yoecx1b78" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_02.png" id="81_rgvj4"]
+[ext_resource type="Texture2D" uid="uid://c3vp1yygvj1i5" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_03.png" id="82_h3qy2"]
+[ext_resource type="Texture2D" uid="uid://gj1nkx5wix1c" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_04.png" id="83_c2sqv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cocpr"]
 texture = ExtResource("2_pm77i")
@@ -275,7 +311,7 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
+"times": PackedFloat32Array(0.25, 3.75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(3120, 279.99988), Vector2(-1569.9999, 279.99988)]
@@ -285,6 +321,21 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_x5u8r"),
 &"move": SubResource("Animation_xub2v")
+}
+
+[sub_resource type="Animation" id="Animation_x68w5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1865, 252)]
 }
 
 [sub_resource type="Animation" id="Animation_bd6hb"]
@@ -304,26 +355,198 @@ tracks/0/keys = {
 "values": [Vector2(13690.001, 589.9999), Vector2(13690.001, -410.00012)]
 }
 
-[sub_resource type="Animation" id="Animation_x68w5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1865, 252)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vyomg"]
 _data = {
 &"RESET": SubResource("Animation_x68w5"),
 &"move": SubResource("Animation_bd6hb")
 }
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wpjht"]
+texture = ExtResource("54_nvvmv")
+texture_region_size = Vector2i(128, 128)
+use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 56, -60, 56)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7pp5"]
+texture = ExtResource("55_yy7ss")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 56, -60, 56)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g0njp"]
+texture = ExtResource("56_a6lkv")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ye3n6"]
+texture = ExtResource("57_jwru3")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_honab"]
+texture = ExtResource("58_vesd6")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0vx6l"]
+texture = ExtResource("59_x2ai2")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 0, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_egw17"]
+texture = ExtResource("60_1qp6s")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17s6b"]
+texture = ExtResource("61_47bk8")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 0, 0, 64, 64, -64, 64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hyae8"]
+texture = ExtResource("62_ccdby")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -12, 64, -56, 4)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jucf"]
+texture = ExtResource("63_3xv1y")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -64, 64, -64, 64, 64, -64, 64, -64, -60)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dwn4r"]
+texture = ExtResource("64_yqakh")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x3r2u"]
+texture = ExtResource("65_cgw15")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(60, -64, 64, -60, 64, 64, -64, 64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jse1"]
+texture = ExtResource("66_515xq")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 56, -60, 56)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27asu"]
+texture = ExtResource("67_7me5w")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(60, -64, 56, 4, 12, 64, -64, 64, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ln8c"]
+texture = ExtResource("68_xokrd")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(60, -64, 64, 64, -12, 64, -28, 36, -36, 0, -16, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fr6x"]
+texture = ExtResource("69_d08dg")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 64, 56, 28, 64, -16, 48, -60, 0, -60, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1l6pd"]
+texture = ExtResource("70_4udnt")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 64, 56, 28, 64, -16, 64, -64, 56, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cjw61"]
+texture = ExtResource("71_enyo0")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 56, 4, 24, 44, -28, 60, -64, 56, -64, -64)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pqugn"]
+texture = ExtResource("72_3id4y")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0v8rr"]
+texture = ExtResource("73_qgr3v")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7njv"]
+texture = ExtResource("74_m45or")
+texture_region_size = Vector2i(128, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fsvux"]
+texture = ExtResource("75_54lcq")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_addbt"]
+texture = ExtResource("76_re70m")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ofyp"]
+texture = ExtResource("77_73j5b")
+0:1/size_in_atlas = Vector2i(4, 2)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -12, 32, -12, 32, 12, -32, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lartv"]
+texture = ExtResource("78_62cx3")
+0:1/size_in_atlas = Vector2i(4, 2)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -12, 32, -12, 32, 12, -32, 12)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0i4s8"]
+texture = ExtResource("79_ho6uo")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ansd"]
+texture = ExtResource("80_0yaw2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwo5h"]
+texture = ExtResource("81_rgvj4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya3wf"]
+texture = ExtResource("82_h3qy2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ce54g"]
+texture = ExtResource("83_c2sqv")
+
+[sub_resource type="TileSet" id="TileSet_8ckas"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_wpjht")
+sources/1 = SubResource("TileSetAtlasSource_v7pp5")
+sources/2 = SubResource("TileSetAtlasSource_4jse1")
+sources/3 = SubResource("TileSetAtlasSource_8ofyp")
+sources/4 = SubResource("TileSetAtlasSource_lartv")
+sources/5 = SubResource("TileSetAtlasSource_0i4s8")
+sources/6 = SubResource("TileSetAtlasSource_2ansd")
+sources/7 = SubResource("TileSetAtlasSource_bwo5h")
+sources/8 = SubResource("TileSetAtlasSource_ya3wf")
+sources/9 = SubResource("TileSetAtlasSource_ce54g")
+sources/10 = SubResource("TileSetAtlasSource_g0njp")
+sources/11 = SubResource("TileSetAtlasSource_ye3n6")
+sources/12 = SubResource("TileSetAtlasSource_honab")
+sources/13 = SubResource("TileSetAtlasSource_0vx6l")
+sources/14 = SubResource("TileSetAtlasSource_egw17")
+sources/15 = SubResource("TileSetAtlasSource_17s6b")
+sources/16 = SubResource("TileSetAtlasSource_hyae8")
+sources/17 = SubResource("TileSetAtlasSource_0jucf")
+sources/18 = SubResource("TileSetAtlasSource_dwn4r")
+sources/19 = SubResource("TileSetAtlasSource_x3r2u")
+sources/20 = SubResource("TileSetAtlasSource_27asu")
+sources/21 = SubResource("TileSetAtlasSource_1ln8c")
+sources/22 = SubResource("TileSetAtlasSource_6fr6x")
+sources/23 = SubResource("TileSetAtlasSource_1l6pd")
+sources/24 = SubResource("TileSetAtlasSource_cjw61")
+sources/25 = SubResource("TileSetAtlasSource_pqugn")
+sources/26 = SubResource("TileSetAtlasSource_0v8rr")
+sources/27 = SubResource("TileSetAtlasSource_r7njv")
+sources/28 = SubResource("TileSetAtlasSource_fsvux")
+sources/29 = SubResource("TileSetAtlasSource_addbt")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bd6hb"]
 
@@ -331,32 +554,35 @@ _data = {
 position = Vector2(-17, 92)
 script = ExtResource("1_bd6hb")
 
-[node name="Map_platform" type="Node2D" parent="."]
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("2_yy7ss")
+
+[node name="Part1" type="Node2D" parent="."]
 position = Vector2(509, 189)
 scale = Vector2(0.099999994, 0.099999994)
 
-[node name="Background01" type="Sprite2D" parent="Map_platform"]
+[node name="Background01" type="Sprite2D" parent="Part1"]
 position = Vector2(1720, -110)
 scale = Vector2(10.000001, 10.000001)
 texture = ExtResource("1_lk3dh")
 
-[node name="Background02" type="Sprite2D" parent="Map_platform"]
+[node name="Background02" type="Sprite2D" parent="Part1"]
 position = Vector2(1720, -110)
 scale = Vector2(10.000001, 10.000001)
 texture = ExtResource("2_ts4pv")
 
-[node name="Background03" type="Sprite2D" parent="Map_platform"]
+[node name="Background03" type="Sprite2D" parent="Part1"]
 z_index = -1
 position = Vector2(15060.004, -110)
 scale = Vector2(10.000001, 10.000001)
 texture = ExtResource("1_lk3dh")
 
-[node name="Background04" type="Sprite2D" parent="Map_platform"]
+[node name="Background04" type="Sprite2D" parent="Part1"]
 position = Vector2(15060.002, -110)
 scale = Vector2(10.000001, 10.000001)
 texture = ExtResource("2_ts4pv")
 
-[node name="TileMap" type="TileMap" parent="Map_platform"]
+[node name="TileMap" type="TileMap" parent="Part1"]
 z_index = 2
 position = Vector2(-5020.0005, -1440.0001)
 scale = Vector2(2.5000002, 2.5000002)
@@ -364,194 +590,254 @@ tile_set = SubResource("TileSet_u8waq")
 format = 2
 layer_0/tile_data = PackedInt32Array(2949167, 22, 0, 2949175, 22, 0, 2949159, 22, 0, 2949151, 22, 0, 2949183, 22, 0, 2949191, 23, 0, 2949143, 21, 0, 2949338, 15, 0, 2949346, 13, 0, 3473626, 20, 0, 3997914, 20, 0, 3473634, 17, 0, 3473642, 17, 0, 2949362, 17, 0, 3473650, 17, 0, 3997922, 17, 0, 3997930, 17, 0, 3997938, 17, 0, 2949354, 16, 0, 2425074, 16, 0, 2425066, 12, 0, 1900786, 12, 0, 4522215, 22, 0, 4522223, 22, 0, 4522231, 22, 0, 4522239, 22, 0, 4522247, 22, 0, 4522255, 23, 0, 3997915, 27, 0, 4522204, 21, 0, 4522212, 22, 0, 4653416, 13, 0, 4653408, 15, 0, 6226280, 17, 0, 5701992, 17, 0, 5177704, 17, 0, 6750559, 13, 0, 6750567, 13, 0, 6750575, 13, 0, 6750583, 13, 0, 6750551, 13, 0, 6750543, 13, 0, 6750535, 13, 0, 6750591, 13, 0, 6750599, 13, 0, 6750527, 13, 0, 6750519, 15, 0, 6750607, 19, 0, 7274807, 20, 0, 7799095, 20, 0, 8323383, 20, 0, 7274895, 24, 0, 7799183, 24, 0, 8323471, 24, 0, 7274887, 17, 0, 7799175, 17, 0, 8323463, 17, 0, 7274879, 17, 0, 7274871, 17, 0, 7799167, 17, 0, 8323455, 17, 0, 7274863, 17, 0, 7799159, 17, 0, 7274855, 17, 0, 7799151, 17, 0, 8323447, 17, 0, 7274847, 17, 0, 7799143, 17, 0, 8323439, 17, 0, 8323431, 17, 0, 7799135, 17, 0, 7274839, 17, 0, 7274831, 17, 0, 7799127, 17, 0, 8323423, 17, 0, 7274823, 17, 0, 7274815, 17, 0, 7799103, 17, 0, 7799111, 17, 0, 7799119, 17, 0, 8323415, 17, 0, 8323407, 17, 0, 8323399, 17, 0, 8323391, 17, 0, 4653424, 13, 0, 4653432, 19, 0, 6226288, 17, 0, 5702000, 17, 0, 5177712, 17, 0, 3473797, 21, 0, 3473805, 22, 0, 3473813, 22, 0, 3473821, 22, 0, 3473829, 22, 0, 3473837, 22, 0, 3473845, 22, 0, 3473853, 23, 0, 2556299, 9, 0, 2556313, 11, 0, 2556333, 11, 0, 2556347, 10, 0, 1769859, 21, 0, 1769867, 22, 0, 1769875, 22, 0, 1769883, 22, 0, 1769891, 22, 0, 1769899, 22, 0, 1769907, 22, 0, 1769915, 22, 0, 1769923, 21, 268435456, 2949508, 27, 0, 2949566, 27, 0, 1900794, 19, 0, 2425082, 24, 0, 2949370, 24, 0, 3473658, 24, 0, 3997946, 24, 0, 1900808, 20, 0, 1376520, 20, 0, 852232, 20, 0, 852240, 20, 268435456, 1376528, 20, 268435456, 1900816, 20, 268435456, 327952, 19, 0, 327944, 19, 268435456, 2425104, 24, 0, 2949392, 24, 0, 3473680, 24, 0, 3997968, 24, 0, 3997960, 24, 268435456, 3473672, 24, 268435456, 2949384, 24, 268435456, 2425096, 24, 268435456, 5177720, 24, 0, 5702008, 24, 0, 6226296, 24, 0, 6226272, 24, 268435456, 5701984, 24, 268435456, 5177696, 24, 268435456, 1835509, 15, 0, 1835517, 19, 0, 2359797, 20, 0, 2359805, 20, 268435456, 2884093, 20, 268435456, 2884085, 20, 0, 3408375, 23, 268435456, 3408383, 22, 0, 3408391, 22, 0, 3408399, 22, 0, 3408407, 22, 0, 3408415, 22, 0, 3408423, 22, 0, 3408431, 22, 0, 3408439, 22, 0, 3408447, 22, 0, 3408455, 22, 0, 3408463, 22, 0, 3408471, 23, 0, 2884185, 20, 268435456, 2359897, 20, 268435456, 2359889, 20, 0, 2884177, 20, 0, 1835609, 19, 0, 1835601, 19, 268435456, 1835613, 13, 0, 1835621, 13, 0, 1835629, 13, 0, 1835637, 13, 0, 1835645, 13, 0, 1835653, 13, 0, 1835661, 13, 0, 1835669, 13, 0, 1835677, 13, 0, 1835685, 22, 0, 1835693, 22, 0, 1835701, 22, 0, 1311413, 20, 0, 787125, 20, 0, 262837, 20, 0, 1638942, 2, 0, 1638938, 3, 0, 1638966, 3, 0, 1638970, 3, 0)
 
-[node name="SmallPlatorm2" parent="Map_platform" instance=ExtResource("35_ts4pv")]
+[node name="SmallPlatorm2" parent="Part1" instance=ExtResource("35_ts4pv")]
 position = Vector2(10920.002, 1860.0002)
 scale = Vector2(3.5000002, 3.5000002)
 
-[node name="Platform2" parent="Map_platform" instance=ExtResource("31_xub2v")]
+[node name="Platform2" parent="Part1" instance=ExtResource("31_xub2v")]
 position = Vector2(348, 172)
 scale = Vector2(3.5000002, 3.5000002)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Map_platform/Platform2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Part1/Platform2"]
 libraries = {
 &"": SubResource("AnimationLibrary_nwpk5")
 }
 autoplay = "move"
 
-[node name="SmallPlatorm" parent="Map_platform" instance=ExtResource("35_ts4pv")]
+[node name="SmallPlatorm" parent="Part1" instance=ExtResource("35_ts4pv")]
 position = Vector2(1865, 252)
 scale = Vector2(3.5000002, 3.5000002)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Map_platform/SmallPlatorm"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Part1/SmallPlatorm"]
 libraries = {
 &"": SubResource("AnimationLibrary_vyomg")
 }
 autoplay = "move"
 
-[node name="decoration" type="Node2D" parent="Map_platform"]
+[node name="decoration" type="Node2D" parent="Part1"]
 position = Vector2(-5090.0005, -1890.0002)
 scale = Vector2(10.000001, 10.000001)
 
-[node name="Sign01" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Sign01" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(156.00003, 199.00002)
 scale = Vector2(0.2109375, 0.2109375)
 texture = ExtResource("39_bvyvf")
 
-[node name="Shrine" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Shrine" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(217.00003, 172.00002)
 scale = Vector2(0.16666667, 0.16666667)
 texture = ExtResource("35_xcdlm")
 
-[node name="Sign04" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Sign04" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(295.00003, 199.00002)
 scale = Vector2(0.2109375, 0.2109375)
 texture = ExtResource("40_ltqn3")
 
-[node name="Sign06" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Sign06" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2059, 212.99995)
 rotation = 0.5934119
 scale = Vector2(0.2109375, 0.2109375)
 texture = ExtResource("40_ltqn3")
 
-[node name="Sign05" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Sign05" type="Sprite2D" parent="Part1/decoration"]
 z_index = 3
 position = Vector2(926.00006, 203.00006)
 rotation = -0.35604715
 scale = Vector2(0.1515625, 0.1515625)
 texture = ExtResource("38_kpjai")
 
-[node name="Tomb" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Tomb" type="Sprite2D" parent="Part1/decoration"]
 z_index = 3
 position = Vector2(958, 259)
 scale = Vector2(0.19791666, 0.19791666)
 texture = ExtResource("39_yaxpm")
 
-[node name="TornBanner" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="TornBanner" type="Sprite2D" parent="Part1/decoration"]
 z_index = 3
 position = Vector2(1083, 244.00002)
 scale = Vector2(0.37031248, 0.37031248)
 texture = ExtResource("40_8f0cu")
 
-[node name="Fence" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Fence" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1252.2999, 430.70007)
 scale = Vector2(0.21406248, 0.21406248)
 texture = ExtResource("41_g6dp3")
 
-[node name="DecorRock02" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="DecorRock02" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1262, 440)
 scale = Vector2(0.099999994, 0.099999994)
 texture = ExtResource("42_5ceot")
 
-[node name="DecorColumn" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="DecorColumn" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1336, 407.99997)
 scale = Vector2(0.43515593, 0.552344)
 texture = ExtResource("43_lcsmq")
 
-[node name="GroundAdditional01" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="GroundAdditional01" type="Sprite2D" parent="Part1/decoration"]
 z_index = 1
 position = Vector2(1037.0001, 187.00002)
 scale = Vector2(0.20937485, 0.20937485)
 texture = ExtResource("26_nx6ne")
 
-[node name="GroundAdditional02" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="GroundAdditional02" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1037, 250.00002)
 scale = Vector2(0.20937485, 0.20937485)
 texture = ExtResource("26_nx6ne")
 
-[node name="GroundAdditional03" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="GroundAdditional03" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1037, 308.25)
 scale = Vector2(0.20937485, 0.15468742)
 texture = ExtResource("26_nx6ne")
 
-[node name="DecorRuins01" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="DecorRuins01" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1682.9999, 24.00003)
 scale = Vector2(0.49166662, 0.49166662)
 texture = ExtResource("44_lcsmq")
 
-[node name="Grass01" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Grass01" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1424, 307)
 scale = Vector2(0.25312498, 0.25312498)
 texture = ExtResource("46_v6i5l")
 
-[node name="Grass02" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Grass02" type="Sprite2D" parent="Part1/decoration"]
 z_index = 3
 position = Vector2(1517, 438)
 scale = Vector2(0.159375, 0.159375)
 texture = ExtResource("47_nx6ne")
 
-[node name="Grass03" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Grass03" type="Sprite2D" parent="Part1/decoration"]
 z_index = 3
 position = Vector2(1383, 437)
 scale = Vector2(0.159375, 0.159375)
 texture = ExtResource("47_nx6ne")
 
-[node name="LittleWreckage" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="LittleWreckage" type="Sprite2D" parent="Part1/decoration"]
 z_index = 3
 texture_filter = 1
 position = Vector2(1426, 406)
 scale = Vector2(0.58124995, 0.58124995)
 texture = ExtResource("48_mdi36")
 
-[node name="Ground02" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground02" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1032, 158.00002)
 scale = Vector2(0.1640625, 0.1640625)
 texture = ExtResource("7_ts4pv")
 
-[node name="Ground03" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground03" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(1053, 158.00002)
 scale = Vector2(0.1640625, 0.1640625)
 texture = ExtResource("7_ts4pv")
 
-[node name="Ground11" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground11" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2432.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground12" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground12" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2466.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground13" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground13" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2496.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground14" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground14" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2530.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground15" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground15" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2564.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground16" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground16" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2598.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground17" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground17" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2632.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="Ground18" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Ground18" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2666.7998, 161.20001)
 scale = Vector2(0.26874998, 0.26874998)
 texture = ExtResource("17_s764c")
 
-[node name="DecorStatue2" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="DecorStatue2" type="Sprite2D" parent="Part1/decoration"]
 position = Vector2(2619.0002, 74.000015)
 scale = Vector2(0.54296875, 0.54296875)
 texture = ExtResource("45_hv30f")
 
-[node name="Sign03" type="Sprite2D" parent="Map_platform/decoration"]
+[node name="Sign03" type="Sprite2D" parent="Part1/decoration"]
 z_index = 4
 position = Vector2(2665.9998, 133.00002)
 scale = Vector2(0.17499998, 0.17499998)
 texture = ExtResource("49_hv30f")
+
+[node name="Sign03" type="Sprite2D" parent="Part1"]
+z_index = 2
+texture_filter = 1
+position = Vector2(5919.9995, 1110.0002)
+rotation = -0.12566371
+scale = Vector2(1.3281251, 1.3281251)
+texture = ExtResource("54_mdi36")
+
+[node name="Lampade" type="Sprite2D" parent="Part1"]
+z_index = 2
+position = Vector2(11730.002, -80)
+scale = Vector2(2.1093752, 2.1093752)
+texture = ExtResource("55_h3d7q")
+
+[node name="Lampade2" type="Sprite2D" parent="Part1"]
+z_index = 2
+position = Vector2(3980.0005, 440)
+scale = Vector2(2.1093752, 2.1093752)
+texture = ExtResource("55_h3d7q")
+
+[node name="Part2" type="Node2D" parent="."]
+
+[node name="Background06" type="Sprite2D" parent="Part2"]
+position = Vector2(2012, -889)
+texture = ExtResource("58_cocpr")
+
+[node name="Background05" type="Sprite2D" parent="Part2"]
+position = Vector2(2012, -971)
+texture = ExtResource("58_cocpr")
+
+[node name="Background07" type="Sprite2D" parent="Part2"]
+position = Vector2(684, -889)
+texture = ExtResource("58_cocpr")
+
+[node name="Background08" type="Sprite2D" parent="Part2"]
+position = Vector2(684, -971)
+texture = ExtResource("58_cocpr")
+
+[node name="Background01" type="Sprite2D" parent="Part2"]
+position = Vector2(684, -1053)
+texture = ExtResource("57_wnaei")
+
+[node name="Background02" type="Sprite2D" parent="Part2"]
+position = Vector2(684, -1053)
+texture = ExtResource("58_cocpr")
+
+[node name="Background03" type="Sprite2D" parent="Part2"]
+position = Vector2(2012, -1053)
+texture = ExtResource("57_wnaei")
+
+[node name="Background04" type="Sprite2D" parent="Part2"]
+position = Vector2(2012, -1053)
+texture = ExtResource("58_cocpr")
+
+[node name="TileMap" type="TileMap" parent="Part2"]
+scale = Vector2(0.26, 0.26)
+tile_set = SubResource("TileSet_8ckas")
+format = 2
+layer_0/tile_data = PackedInt32Array(-15925111, 24, 0, -15925119, 23, 0, -15925127, 23, 0, -15925135, 23, 0, -15925143, 22, 0)
 
 [node name="spikes" type="Node2D" parent="."]
 position = Vector2(-3.0517578e-05, -1.5258789e-05)
@@ -618,7 +904,7 @@ position = Vector2(3408.5718, 579.99994)
 scale = Vector2(0.28571427, 0.28571427)
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
-position = Vector2(2022, 120)
+position = Vector2(118, 177)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -632,22 +918,34 @@ position = Vector2(109, 612)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_bd6hb")
 
-[node name="Sign03" type="Sprite2D" parent="."]
-z_index = 2
-texture_filter = 1
-position = Vector2(1100.9999, 300)
-rotation = -0.12566371
-scale = Vector2(0.1328125, 0.1328125)
-texture = ExtResource("54_mdi36")
+[node name="Portal" parent="." instance=ExtResource("55_6axy7")]
+position = Vector2(2717, 107)
+scale = Vector2(2, 2)
 
-[node name="Lampade" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(1682, 181)
-scale = Vector2(0.2109375, 0.2109375)
-texture = ExtResource("55_h3d7q")
+[node name="destination_point" parent="Portal" index="2"]
+position = Vector2(-1136, -575.5)
 
-[node name="Lampade2" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(907, 233)
-scale = Vector2(0.2109375, 0.2109375)
-texture = ExtResource("55_h3d7q")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchor_left = 0.034
+anchor_top = 0.045
+anchor_right = 0.034
+anchor_bottom = 0.045
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 50
+
+[node name="Score" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("59_hhyfv")]
+layout_mode = 2
+
+[node name="health" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("60_jpel7")]
+layout_mode = 2
+
+[editable path="Portal"]

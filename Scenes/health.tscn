@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bv4pm3tr4xupn"]
+
+[ext_resource type="FontFile" uid="uid://bal5ie4n6jxmp" path="res://Assets/ShortBaby-Mg2w.ttf" id="1_aswr4"]
+[ext_resource type="Texture2D" uid="uid://djsrwk67aelw1" path="res://Assets/Tilesets/Castle cartoon/PNG/Collectable Object/Life.png" id="2_aswr4"]
+
+[node name="health" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 28.0
+offset_top = -14.0
+offset_right = 68.0
+offset_bottom = 18.0
+theme_override_fonts/font = ExtResource("1_aswr4")
+theme_override_font_sizes/font_size = 32
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_aswr4")
