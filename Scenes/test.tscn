@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cjkdv5yr4a3xt"]
+[gd_scene load_steps=69 format=3 uid="uid://cjkdv5yr4a3xt"]
 
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_8od7v"]
 [ext_resource type="Texture2D" uid="uid://bn7wrv1rjnfx2" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Bonus.png" id="3_2jg6l"]
@@ -34,6 +34,7 @@
 [ext_resource type="Texture2D" uid="uid://b8jevvsjy1s0p" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_04.png" id="32_xyxnv"]
 [ext_resource type="Texture2D" uid="uid://b4lgjdvbqvu15" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Ground-Additional_05.png" id="33_ysmh5"]
 [ext_resource type="PackedScene" uid="uid://bkgghwrogueke" path="res://Scenes/killzone.tscn" id="34_nlfrn"]
+[ext_resource type="PackedScene" uid="uid://dqeexwsddineo" path="res://Scenes/spikes.tscn" id="35_j44qy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3rva"]
 texture = ExtResource("3_2jg6l")
@@ -263,10 +264,15 @@ scale = Vector2(0.25, 0.25)
 tile_set = SubResource("TileSet_srv0g")
 rendering_quadrant_size = 17
 format = 2
-layer_0/tile_data = PackedInt32Array(851971, 0, 0, 851978, 0, 0, 851985, 0, 0, 458748, 1, 0, 851995, 0, 0, 852006, 0, 0, 852018, 0, 0, 852032, 0, 0)
+layer_0/tile_data = PackedInt32Array(851971, 0, 0, 851978, 0, 0, 851985, 0, 0, 458748, 1, 0, 851995, 0, 0, 852006, 0, 0, 852018, 0, 0, 852032, 0, 0, 1310742, 2, 0)
 
 [node name="Killzone" parent="." instance=ExtResource("34_nlfrn")]
 position = Vector2(466, 326)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(37, 17)
 shape = SubResource("WorldBoundaryShape2D_nlfrn")
+
+[node name="Spikes" parent="." instance=ExtResource("35_j44qy")]
+position = Vector2(361, 254)
+scale = Vector2(0.35, 0.35)

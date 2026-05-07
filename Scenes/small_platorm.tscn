@@ -6,6 +6,7 @@
 size = Vector2(128, 31)
 
 [node name="SmallPlatorm" type="AnimatableBody2D"]
+scale = Vector2(0.35, 0.35)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

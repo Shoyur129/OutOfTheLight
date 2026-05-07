@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED: float = 150.0
-const JUMP_VELOCITY: float = -350.0
+const JUMP_VELOCITY: float = -375.0
 
 @export var health: int = 5
 
@@ -15,6 +15,8 @@ func _ready():
 	add_to_group("player")
 	sprite.play("Idle")
 
+@onready var animated_sprite = $AnimatedSprite2D
+
 func _physics_process(delta: float):
 	if is_dead:
 		return
@@ -22,8 +24,10 @@ func _physics_process(delta: float):
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
-	var direction := Input.get_axis("move_left", "move_right")
+	
+	# Get the input direstion
+	var direction = Input.get_axis("move_left", "move_right")
+	
 	if direction:
 		velocity.x = direction * SPEED
 		if direction < 0:
@@ -31,13 +35,13 @@ func _physics_process(delta: float):
 		elif direction > 0:
 			sprite.flip_h = false
 		if is_on_floor() and not is_hurt:
-			sprite.play("Running")
+			sprite.play("Run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_on_floor() and not is_hurt:
 			sprite.play("Idle")
 	if not is_on_floor() and not is_hurt:
-		sprite.play("Jump Loop")
+		sprite.play("Jump")
 	move_and_slide()
 
 func take_damage(amount: int = 1):
