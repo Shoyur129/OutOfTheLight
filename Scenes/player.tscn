@@ -196,7 +196,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Die",
-"speed": 20.0
+"speed": 35.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -486,9 +486,8 @@ metadata/_edit_group_ = true
 texture_filter = 1
 scale = Vector2(0.125, 0.125)
 sprite_frames = SubResource("SpriteFrames_ek41f")
-animation = &"Jump"
+animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.881712
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 3)
