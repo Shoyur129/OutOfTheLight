@@ -109,6 +109,9 @@ func take_damage(amount: int = 1):
 func die():
 	is_dead = true
 	velocity.x = 0
+	if player and player.has_method("heal"):
+		player.heal(1)
+	player = null
 	sprite.play("Dying")
 
 func play_animation_if_not_playing(anim_name: String) -> void:

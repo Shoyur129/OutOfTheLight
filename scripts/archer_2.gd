@@ -97,9 +97,11 @@ func die() -> void:
 	is_dead = true
 	is_hurt = false
 	player_in_range = false
-	player_ref = null
 	velocity.x = 0
 	shoot_timer.stop()
+	if player_ref and player_ref.has_method("heal"):
+		player_ref.heal(1)
+	player_ref = null
 	if sprite.sprite_frames.has_animation("Dying"):
 		sprite.play("Dying")
 	else:
