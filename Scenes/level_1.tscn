@@ -1,4 +1,4 @@
-[gd_scene load_steps=162 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=164 format=3 uid="uid://vy0rt7fokwpa"]
 
 [ext_resource type="Script" uid="uid://cvyru22mb4ypk" path="res://scripts/level_1.gd" id="1_bd6hb"]
 [ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
@@ -91,6 +91,8 @@
 [ext_resource type="Texture2D" uid="uid://d1b4yoecx1b78" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_02.png" id="81_rgvj4"]
 [ext_resource type="Texture2D" uid="uid://c3vp1yygvj1i5" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_03.png" id="82_h3qy2"]
 [ext_resource type="Texture2D" uid="uid://gj1nkx5wix1c" path="res://Assets/Tilesets/Castle cartoon/PNG/Platformer/Ground-Additional_04.png" id="83_c2sqv"]
+[ext_resource type="PackedScene" uid="uid://paxsv7grivyr" path="res://Scenes/archer_1.tscn" id="85_jwru3"]
+[ext_resource type="PackedScene" uid="uid://blexo3qwiigek" path="res://Scenes/Vampire.tscn" id="86_vesd6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cocpr"]
 texture = ExtResource("2_pm77i")
@@ -361,6 +363,12 @@ _data = {
 &"move": SubResource("Animation_bd6hb")
 }
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy7ss"]
+bg_color = Color(0.44705883, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6lkv"]
+bg_color = Color(0.65882355, 0, 0, 1)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wpjht"]
 texture = ExtResource("54_nvvmv")
 texture_region_size = Vector2i(128, 128)
@@ -393,7 +401,7 @@ texture_region_size = Vector2i(128, 128)
 texture = ExtResource("60_1qp6s")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -28, -64, -28)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17s6b"]
 texture = ExtResource("61_47bk8")
@@ -547,12 +555,6 @@ sources/26 = SubResource("TileSetAtlasSource_0v8rr")
 sources/27 = SubResource("TileSetAtlasSource_r7njv")
 sources/28 = SubResource("TileSetAtlasSource_fsvux")
 sources/29 = SubResource("TileSetAtlasSource_addbt")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yy7ss"]
-bg_color = Color(0.44705883, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a6lkv"]
-bg_color = Color(0.65882355, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bd6hb"]
 
@@ -807,138 +809,134 @@ texture = ExtResource("55_h3d7q")
 
 [node name="Part2" type="Node2D" parent="."]
 
-[node name="Background06" type="Sprite2D" parent="Part2"]
-position = Vector2(2012, -889)
+[node name="png backgrounds" type="Node" parent="Part2"]
+
+[node name="Background06" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1995, -797)
 texture = ExtResource("58_cocpr")
 
-[node name="Background05" type="Sprite2D" parent="Part2"]
-position = Vector2(2012, -971)
+[node name="Background05" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1995, -879)
 texture = ExtResource("58_cocpr")
 
-[node name="Background07" type="Sprite2D" parent="Part2"]
-position = Vector2(684, -889)
+[node name="Background07" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(667, -797)
 texture = ExtResource("58_cocpr")
 
-[node name="Background08" type="Sprite2D" parent="Part2"]
-position = Vector2(684, -971)
+[node name="Background08" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(667, -879)
 texture = ExtResource("58_cocpr")
 
-[node name="Background01" type="Sprite2D" parent="Part2"]
-position = Vector2(684, -1053)
+[node name="Background01" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(667, -961)
 texture = ExtResource("57_wnaei")
 
-[node name="Background02" type="Sprite2D" parent="Part2"]
-position = Vector2(684, -1053)
+[node name="Background02" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(667, -961)
 texture = ExtResource("58_cocpr")
 
-[node name="Background03" type="Sprite2D" parent="Part2"]
-position = Vector2(2012, -1053)
+[node name="Background03" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1995, -961)
 texture = ExtResource("57_wnaei")
 
-[node name="Background04" type="Sprite2D" parent="Part2"]
-position = Vector2(2012, -1053)
+[node name="Background04" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1995, -961)
 texture = ExtResource("58_cocpr")
+
+[node name="Ground03" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1047, -995.9999)
+scale = Vector2(0.24999976, 0.24999976)
+texture = ExtResource("60_1qp6s")
+
+[node name="Ground05" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1178, -995.9999)
+scale = Vector2(0.24999976, 0.24999976)
+texture = ExtResource("60_1qp6s")
+
+[node name="Ground06" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1166, -972.0001)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground07" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1169, -953.0001)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground08" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1169.0001, -931.0001)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground09" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1169, -909)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground10" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1169.0001, -906)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground11" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1058, -905.99994)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground12" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1058, -927)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground13" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1058, -949)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground14" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1057, -971.0001)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground15" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1057, -971.0001)
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground18" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1130.9999, -971)
+scale = Vector2(0.67968595, 0.171875)
+texture = ExtResource("64_yqakh")
+
+[node name="Ground04" type="Sprite2D" parent="Part2/png backgrounds"]
+position = Vector2(1179, -958)
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("60_1qp6s")
+
+[node name="Label" type="Label" parent="Part2/png backgrounds"]
+z_index = 1
+offset_left = -31.0
+offset_top = -609.0
+offset_right = 2677.0
+offset_bottom = -482.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yy7ss")
+theme_override_styles/focus = SubResource("StyleBoxFlat_a6lkv")
 
 [node name="TileMap" type="TileMap" parent="Part2"]
 z_index = 2
 scale = Vector2(0.26, 0.26)
 tile_set = SubResource("TileSet_8ckas")
 format = 2
-layer_0/tile_data = PackedInt32Array(-15925111, 24, 0, -15925119, 23, 0, -15925127, 23, 0, -15925135, 23, 0, -15925143, 22, 0, -15925077, 16, 0, -15925069, 14, 0, -15925061, 14, 0, -16449341, 13, 0, -16973621, 13, 0, -15925053, 17, 0, -16449333, 17, 0, -15925045, 18, 0, -16973613, 14, 0, -16973605, 14, 0, -16973597, 20, 0, -16449309, 25, 0, -15925021, 25, 0, -15400733, 25, 0, -14876445, 25, 0, -15400789, 25, 268435456, -14876501, 25, 268435456, -14352213, 23, 0, -14352205, 23, 0, -14352197, 23, 0, -14352189, 23, 0, -14352181, 23, 0, -14352173, 23, 0, -14352165, 23, 0, -14352157, 23, 0, -14352221, 22, 0, -15400781, 18, 0, -15400773, 18, 0, -15400765, 18, 0, -15400757, 18, 0, -14876469, 18, 0, -14876477, 18, 0, -14876485, 18, 0, -14876493, 18, 0, -14876461, 18, 0, -14876453, 18, 0, -15400741, 18, 0, -15400749, 18, 0, -15925037, 18, 0, -16449325, 18, 0, -16449317, 18, 0, -15925029, 18, 0, -14352149, 23, 0, -14352141, 24, 0, -15335172, 22, 0, -15335164, 23, 0, -15335156, 23, 0, -15335148, 23, 0, -15335140, 23, 0, -15335132, 23, 0, -15335124, 23, 0, -15335116, 24, 0, -15859463, 25, 268435456, -16383751, 25, 268435456, -16908039, 21, 0, -17432327, 21, 0, -17956615, 16, 0, -17956607, 20, 0, -17432319, 25, 0, -16908031, 25, 0, -16383743, 25, 0, -15859455, 25, 0, -15859427, 21, 0, -16383715, 21, 0, -16908003, 21, 0, -15859419, 21, 268435456, -16383707, 21, 268435456, -16907995, 21, 268435456, -17432283, 20, 0, -17432291, 20, 268435456, -16645866, 18, 0, -16645874, 18, 0, -16121578, 18, 0, -15859434, 18, 0, -16121586, 18, 0, -15859442, 18, 0, -15859449, 18, 0, -16318201, 18, 0, -16711417, 18, 0)
+layer_0/tile_data = PackedInt32Array(-15925111, 24, 0, -15925119, 23, 0, -15925127, 23, 0, -15925135, 23, 0, -15925143, 22, 0, -15925077, 16, 0, -15925069, 14, 0, -15925061, 14, 0, -16449341, 13, 0, -16973621, 13, 0, -15925053, 17, 0, -16449333, 17, 0, -15925045, 18, 0, -16973613, 14, 0, -16973605, 14, 0, -16973597, 20, 0, -16449309, 25, 0, -15925021, 25, 0, -15400733, 25, 0, -14876445, 25, 0, -15400789, 25, 268435456, -14876501, 25, 268435456, -14352213, 23, 0, -14352205, 23, 0, -14352197, 23, 0, -14352189, 23, 0, -14352181, 23, 0, -14352173, 23, 0, -14352165, 23, 0, -14352157, 23, 0, -14352221, 22, 0, -15400781, 18, 0, -15400773, 18, 0, -15400765, 18, 0, -15400757, 18, 0, -14876469, 18, 0, -14876477, 18, 0, -14876485, 18, 0, -14876493, 18, 0, -14876461, 18, 0, -14876453, 18, 0, -15400741, 18, 0, -15400749, 18, 0, -15925037, 18, 0, -16449325, 18, 0, -16449317, 18, 0, -15925029, 18, 0, -14352149, 23, 0, -14352141, 24, 0, -15335172, 22, 0, -15335164, 23, 0, -15335156, 23, 0, -15335148, 23, 0, -15335140, 23, 0, -15335132, 23, 0, -15335124, 23, 0, -15335116, 24, 0, -15859463, 25, 268435456, -16383751, 25, 268435456, -16908039, 21, 0, -17432327, 21, 0, -17956615, 16, 0, -17956607, 20, 0, -17432319, 25, 0, -16908031, 25, 0, -16383743, 25, 0, -15859455, 25, 0, -17432283, 20, 0, -17432291, 20, 268435456, -16645866, 18, 0, -16645874, 18, 0, -16121578, 18, 0, -15859434, 18, 0, -16121586, 18, 0, -15859442, 18, 0, -15859449, 18, 0, -16318201, 18, 0, -16711417, 18, 0, -17170169, 14, 0, -17170161, 14, 0, -17170153, 14, 0, -16907995, 25, 0, -16383707, 25, 0, -15859419, 25, 0, -16908003, 25, 268435456, -16383715, 25, 268435456, -15859427, 25, 268435456)
 
-[node name="Label" type="Label" parent="Part2"]
-z_index = 1
-offset_left = -14.0
-offset_top = -701.0
-offset_right = 2694.0
-offset_bottom = -574.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_yy7ss")
-theme_override_styles/focus = SubResource("StyleBoxFlat_a6lkv")
+[node name="Archer1" parent="Part2" instance=ExtResource("85_jwru3")]
+z_index = 4
+position = Vector2(1435.9999, 414)
+scale = Vector2(0.22, 0.22)
+patrol_distance = 100.0
 
-[node name="Ground02" type="Sprite2D" parent="Part2"]
-position = Vector2(1191, -1088)
-scale = Vector2(0.24999976, 0.24999976)
-texture = ExtResource("60_1qp6s")
-
-[node name="Ground05" type="Sprite2D" parent="Part2"]
-position = Vector2(1159, -1088)
-scale = Vector2(0.24999976, 0.24999976)
-texture = ExtResource("60_1qp6s")
-
-[node name="Ground16" type="Sprite2D" parent="Part2"]
-position = Vector2(1127, -1087.9999)
-scale = Vector2(0.24999976, 0.24999976)
-texture = ExtResource("60_1qp6s")
-
-[node name="Ground17" type="Sprite2D" parent="Part2"]
-position = Vector2(1095, -1087.9999)
-scale = Vector2(0.24999976, 0.24999976)
-texture = ExtResource("60_1qp6s")
-
-[node name="Ground03" type="Sprite2D" parent="Part2"]
-position = Vector2(1064, -1087.9999)
-scale = Vector2(0.24999976, 0.24999976)
-texture = ExtResource("60_1qp6s")
-
-[node name="Ground06" type="Sprite2D" parent="Part2"]
-position = Vector2(1183, -1064.0001)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground07" type="Sprite2D" parent="Part2"]
-position = Vector2(1186, -1045.0001)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground08" type="Sprite2D" parent="Part2"]
-position = Vector2(1186.0001, -1023.0001)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground09" type="Sprite2D" parent="Part2"]
-position = Vector2(1186, -1001)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground10" type="Sprite2D" parent="Part2"]
-position = Vector2(1186.0001, -998)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground11" type="Sprite2D" parent="Part2"]
-position = Vector2(1075, -997.99994)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground12" type="Sprite2D" parent="Part2"]
-position = Vector2(1075, -1019)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground13" type="Sprite2D" parent="Part2"]
-position = Vector2(1075, -1041)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground14" type="Sprite2D" parent="Part2"]
-position = Vector2(1074, -1063.0001)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground15" type="Sprite2D" parent="Part2"]
-position = Vector2(1074, -1063.0001)
-scale = Vector2(0.171875, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground18" type="Sprite2D" parent="Part2"]
-position = Vector2(1147.9999, -1063)
-scale = Vector2(0.67968595, 0.171875)
-texture = ExtResource("64_yqakh")
-
-[node name="Ground04" type="Sprite2D" parent="Part2"]
-position = Vector2(1196, -1050)
-scale = Vector2(0.15625, 0.15625)
-texture = ExtResource("60_1qp6s")
+[node name="Vampire" parent="Part2" instance=ExtResource("86_vesd6")]
+position = Vector2(1683, 112)
 
 [node name="spikes" type="Node2D" parent="."]
 position = Vector2(-3.0517578e-05, -1.5258789e-05)
@@ -1001,7 +999,7 @@ position = Vector2(2714.2856, 591.4285)
 scale = Vector2(0.28571427, 0.28571427)
 
 [node name="Coin4" parent="coins" instance=ExtResource("32_x5u8r")]
-position = Vector2(3797.1426, -274.28564)
+position = Vector2(3800.0005, -262.85715)
 scale = Vector2(0.28571427, 0.28571427)
 
 [node name="Coin5" parent="coins" instance=ExtResource("32_x5u8r")]
@@ -1009,7 +1007,7 @@ position = Vector2(3408.5718, 579.99994)
 scale = Vector2(0.28571427, 0.28571427)
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
-position = Vector2(501, -1064)
+position = Vector2(1858, 178)
 scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

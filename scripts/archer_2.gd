@@ -21,6 +21,7 @@ var is_hurt: bool = false
 func _ready() -> void:
 	start_position = global_position
 	sprite.play("idle")
+	shoot_timer.start()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -33,6 +34,16 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		move_and_slide()
 		return
+	
+	# Check for player in detection area using physics
+	player_in_range = false
+	player_ref = null
+	for body in detection_area.get_overlapping_bodies():
+		if body.name == "Player" or body.is_in_group("player"):
+			player_in_range = true
+			player_ref = body
+			break
+	
 	if player_in_range and player_ref != null:
 		attack_player()
 	else:
@@ -114,26 +125,12 @@ func play_animation_if_not_playing(anim_name: String) -> void:
 	if sprite.animation != anim_name:
 		sprite.play(anim_name)
 
-func _on_detection_area_body_entered(body: Node) -> void:
-	if is_dead:
-		return
-	if body.name == "Player" or body.is_in_group("player"):
-		player_in_range = true
-		player_ref = body
-		shoot_timer.start()
-
-func _on_detection_area_body_exited(body: Node) -> void:
-	if body.name == "Player" or body.is_in_group("player"):
-		player_in_range = false
-		player_ref = null
-		shoot_timer.stop()
-
 func _on_shoot_timer_timeout() -> void:
 	if is_dead:
 		return
 	if player_in_range and player_ref != null:
 		shoot_arrow()
-		print("Archer 1 shoots arrow")
+		print("Archer 2 shoots arrow")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "Dying":
