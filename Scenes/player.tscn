@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://h0g4erbxhvh3"]
+[gd_scene load_steps=108 format=3 uid="uid://h0g4erbxhvh3"]
 
 [ext_resource type="Texture2D" uid="uid://btnxoaielfsvr" path="res://Assets/Vampire/Vampire_1/PNG/PNG Sequences/Slashing/0_Vampire_Slashing_000.png" id="1_awsf5"]
 [ext_resource type="Script" uid="uid://dyvuj3nwavymn" path="res://scripts/player.gd" id="1_v84ne"]
@@ -145,58 +145,8 @@ animations = [{
 "texture": ExtResource("12_nwtn4")
 }],
 "loop": false,
-"name": &"Attack",
+"name": &"Attacking",
 "speed": 20.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_hl8o5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_v8gx6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_vlr8u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_fip0x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_4tc2f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_u5w1p")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_fnpki")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_14ki3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_uvwc7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_t1r1w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_s3u64")
-}, {
-"duration": 1.0,
-"texture": ExtResource("24_0cppb")
-}, {
-"duration": 1.0,
-"texture": ExtResource("25_s2qaf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("26_jr4hp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("27_8h4oy")
-}],
-"loop": false,
-"name": &"Die",
-"speed": 35.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -300,6 +250,56 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("13_hl8o5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v8gx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vlr8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_fip0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4tc2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_u5w1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_fnpki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_14ki3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_uvwc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_t1r1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_s3u64")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_0cppb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_s2qaf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_jr4hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_8h4oy")
+}],
+"loop": false,
+"name": &"die",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("58_k2btx")
 }, {
 "duration": 1.0,
@@ -348,7 +348,7 @@ animations = [{
 "texture": ExtResource("58_k2btx")
 }],
 "loop": true,
-"name": &"Jump",
+"name": &"jump",
 "speed": 20.0
 }, {
 "frames": [{
@@ -389,7 +389,7 @@ animations = [{
 "texture": ExtResource("78_ljkmv")
 }],
 "loop": true,
-"name": &"Run",
+"name": &"run",
 "speed": 17.0
 }, {
 "frames": [{
@@ -466,15 +466,18 @@ animations = [{
 "texture": ExtResource("102_5xxh7")
 }],
 "loop": true,
-"name": &"Walk",
+"name": &"walk",
 "speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v84ne"]
-radius = 22.0
-height = 70.0
+radius = 41.0
+height = 146.0
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4pcjl"]
+radius = 154.236
+
+[node name="Player" type="CharacterBody2D"]
 z_index = 5
 scale = Vector2(0.5, 0.5)
 collision_layer = 2
@@ -484,13 +487,19 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(0.125, 0.125)
+position = Vector2(-4, -2)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_ek41f")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, 3)
+position = Vector2(-7, 1)
 shape = SubResource("CapsuleShape2D_v84ne")
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+shape = SubResource("CircleShape2D_4pcjl")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

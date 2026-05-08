@@ -230,7 +230,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15_cxk7w")
 }],
-"loop": true,
+"loop": false,
 "name": &"Dying",
 "speed": 5.0
 }, {
@@ -595,7 +595,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("96_patj1")
 }],
-"loop": true,
+"loop": false,
 "name": &"Shooting",
 "speed": 5.0
 }, {
@@ -805,10 +805,9 @@ radius = 54.0
 height = 164.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_antn0"]
-size = Vector2(729.5, 120)
+size = Vector2(1166, 120)
 
 [node name="Archer1" type="CharacterBody2D"]
-scale = Vector2(0.5, 0.5)
 collision_mask = 7
 script = ExtResource("1_1jq1l")
 arrow_scene = ExtResource("2_dy8tc")
@@ -816,11 +815,12 @@ arrow_scene = ExtResource("2_dy8tc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_pyxx8")
-animation = &"Shooting"
+animation = &"Idle Blinking"
+frame_progress = 0.7681058
 speed_scale = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 12)
+position = Vector2(-4, 11)
 shape = SubResource("CapsuleShape2D_fu5s7")
 
 [node name="ShootPoint" type="Marker2D" parent="."]
@@ -830,10 +830,11 @@ position = Vector2(26, 50)
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(0, 30)
+position = Vector2(1, 30)
 shape = SubResource("RectangleShape2D_antn0")
 
 [node name="ShootTimer" type="Timer" parent="."]
+wait_time = 1.5
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 
