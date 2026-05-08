@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh3ffgdjbf3pw"]
+
+[ext_resource type="Texture2D" uid="uid://cay1avg06pqdc" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_01.png" id="1_8fo1c"]
+[ext_resource type="Texture2D" uid="uid://xppihoxpp0wn" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_02.png" id="2_ek8ke"]
+
+[sub_resource type="FontVariation" id="FontVariation_xim88"]
+variation_embolden = 0.75
+spacing_glyph = 3
+spacing_space = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_eoghk"]
+font = SubResource("FontVariation_xim88")
+font_size = 60
+outline_size = 25
+outline_color = Color(0.227451, 0.176471, 0.0784314, 1)
+shadow_size = 9
+shadow_color = Color(0.286275, 0.223529, 0.105882, 0.921569)
+shadow_offset = Vector2(-9, 9)
+
+[node name="GameOver" type="Node2D"]
+
+[node name="Background01" type="Sprite2D" parent="."]
+position = Vector2(563, 338)
+texture = ExtResource("1_8fo1c")
+
+[node name="Background02" type="Sprite2D" parent="."]
+position = Vector2(563, 338)
+texture = ExtResource("2_ek8ke")
+
+[node name="Title" type="Label" parent="."]
+offset_left = -16.0
+offset_top = -21.0
+offset_right = 1131.0
+offset_bottom = 142.0
+theme_override_constants/line_spacing = 3
+theme_override_font_sizes/font_size = 60
+text = "Congratulations"
+label_settings = SubResource("LabelSettings_eoghk")
+horizontal_alignment = 1
+vertical_alignment = 1
