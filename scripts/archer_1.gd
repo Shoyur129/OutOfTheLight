@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var patrol_distance: float = 80.0
 @export var health: int = 1
 
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var detection_area: Area2D = $DetectionArea
 @onready var shoot_timer: Timer = $ShootTimer

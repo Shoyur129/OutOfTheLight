@@ -473,6 +473,7 @@ height = 174.0
 size = Vector2(252, 170)
 
 [node name="Vampire" type="CharacterBody2D"]
+z_index = 3
 scale = Vector2(0.25, 0.25)
 collision_mask = 7
 script = ExtResource("1_k27bt")

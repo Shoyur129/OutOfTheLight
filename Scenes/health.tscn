@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv4pm3tr4xupn"]
+[gd_scene load_steps=4 format=3 uid="uid://bv4pm3tr4xupn"]
 
 [ext_resource type="FontFile" uid="uid://bal5ie4n6jxmp" path="res://Assets/ShortBaby-Mg2w.ttf" id="1_aswr4"]
+[ext_resource type="Script" uid="uid://dg36x4q78sx6t" path="res://scripts/health.gd" id="1_s36ud"]
 [ext_resource type="Texture2D" uid="uid://djsrwk67aelw1" path="res://Assets/Tilesets/Castle cartoon/PNG/Collectable Object/Life.png" id="2_aswr4"]
 
 [node name="health" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_s36ud")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
