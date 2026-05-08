@@ -469,8 +469,8 @@ animations = [{
 radius = 60.0
 height = 174.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ns7g1"]
-radius = 160.312
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6avf4"]
+size = Vector2(252, 170)
 
 [node name="Vampire" type="CharacterBody2D"]
 scale = Vector2(0.25, 0.25)
@@ -480,7 +480,7 @@ script = ExtResource("1_k27bt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_cgnd7")
-animation = &"Hurt"
+animation = &"Jump Loop"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -491,8 +491,8 @@ shape = SubResource("CapsuleShape2D_xloi0")
 collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(-13.333298, -3.3333282)
-shape = SubResource("CircleShape2D_ns7g1")
+position = Vector2(-6.000004, 5)
+shape = SubResource("RectangleShape2D_6avf4")
 
 [node name="AttackTimer" type="Timer" parent="."]
 wait_time = 1.5

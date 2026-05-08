@@ -2,17 +2,20 @@ extends CharacterBody2D
 
 
 const SPEED: float = 150.0
-const JUMP_VELOCITY: float = -350.0
+const JUMP_VELOCITY: float = -370.0
 
 @export var health: int = 5
 @onready var attack_area: Area2D = $AttackArea
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal health_changed(new_health: int)
 
 var is_attacking: bool = false
 var attack_damage: int = 1
 var is_dead: bool = false
 var is_hurt: bool = false
+var hurt_timer: float = 0.0
+var hurt_duration: float = 0.6  # Duration of hurt state in seconds
 
 
 func _ready():
@@ -22,11 +25,18 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
+	
+	# Decrement hurt timer
+	if is_hurt:
+		hurt_timer -= delta
+		if hurt_timer <= 0:
+			is_hurt = false
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-	if Input.is_action_just_pressed("Attacking") and not is_attacking:
+	if Input.is_action_just_pressed("Attacking") and not is_attacking and not is_hurt:
 		attack()
 	var direction := Input.get_axis("move_left", "move_right")
 	if not is_attacking:
@@ -68,18 +78,23 @@ func take_damage(amount: int = 1) -> void:
 		return
 	health -= amount
 	print("Player health: ", health)
+	health_changed.emit(health)
 	if health <= 0:
 		die()
+		return
 	else:
 		hurt()
+		return
 
 func get_damage(damage: int = 1) -> void:
 	take_damage(damage)
 
 func hurt() -> void:
 	is_hurt = true
+	hurt_timer = hurt_duration
 	if sprite.sprite_frames.has_animation("Hurt"):
 		sprite.play("Hurt")
+		return
 
 func die() -> void:
 	is_dead = true
@@ -87,10 +102,11 @@ func die() -> void:
 
 	if sprite.sprite_frames.has_animation("die"):
 		sprite.play("die")
+		return
 		
 	else:
 		queue_free()
-
+		return
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "Slashing" or sprite.animation == "Attacking":
 		is_attacking = false
