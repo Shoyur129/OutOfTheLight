@@ -102,6 +102,7 @@ func die() -> void:
 	shoot_timer.stop()
 	if player_ref and player_ref.has_method("heal"):
 		player_ref.heal(1)
+	GameState.add_score()
 	player_ref = null
 	if sprite.sprite_frames.has_animation("Dying"):
 		sprite.play("Dying")

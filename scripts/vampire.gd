@@ -111,6 +111,7 @@ func die():
 	velocity.x = 0
 	if player and player.has_method("heal"):
 		player.heal(1)
+	GameState.add_score()
 	player = null
 	sprite.play("Dying")
 

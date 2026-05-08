@@ -9,6 +9,9 @@ func _ready() -> void:
             player.health_changed.connect(_on_player_health_changed)
         _update_health()
 
+func _process(_delta: float) -> void:
+    _update_health()
+
 func _on_player_health_changed(new_health: int) -> void:
     health_label.text = str(new_health)
 

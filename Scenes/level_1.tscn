@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://vy0rt7fokwpa"]
+[gd_scene load_steps=190 format=3 uid="uid://vy0rt7fokwpa"]
 
 [ext_resource type="Script" uid="uid://cvyru22mb4ypk" path="res://scripts/level_1.gd" id="1_bd6hb"]
 [ext_resource type="Texture2D" uid="uid://dpq40hb73mcmf" path="res://Assets/Tilesets/Ancient Dungeon/PNG/Background/Background_01.png" id="1_lk3dh"]
@@ -112,6 +112,7 @@
 [ext_resource type="Texture2D" uid="uid://cq2fj8ff3jsmh" path="res://Assets/Tilesets/Castle cartoon/PNG/Collectable Object/Chest_01_Locked.png" id="100_m45or"]
 [ext_resource type="Script" uid="uid://duumwk8qaoj70" path="res://scripts/checkpoint_manager.gd" id="111_54lcq"]
 [ext_resource type="PackedScene" uid="uid://cyhwdh0ghliyd" path="res://Scenes/checkpoint.tscn" id="112_re70m"]
+[ext_resource type="Script" uid="uid://biu4oor7pcj8y" path="res://scripts/light.gd" id="113_73j5b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cocpr"]
 texture = ExtResource("2_pm77i")
@@ -680,6 +681,9 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_re70m"]
 size = Vector2(2654, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62cx3"]
+size = Vector2(117.5, 201.5)
 
 [node name="Level 1" type="Node2D"]
 position = Vector2(-17, 92)
@@ -1532,7 +1536,7 @@ position = Vector2(5411.4287, -3962.8577)
 scale = Vector2(0.28571427, 0.28571427)
 
 [node name="Player" parent="." instance=ExtResource("1_vk57k")]
-position = Vector2(2574, 102)
+position = Vector2(1200, -1159)
 scale = Vector2(0.25, 0.25)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -1629,6 +1633,41 @@ position = Vector2(755, -649)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone2"]
 position = Vector2(594, 10)
 shape = SubResource("RectangleShape2D_re70m")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(169, -474)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("113_73j5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(954, -708.5)
+shape = SubResource("RectangleShape2D_62cx3")
+
+[node name="DamageTimer" type="Timer" parent="Area2D"]
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(169, -474)
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("113_73j5b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1412, -680)
+shape = SubResource("RectangleShape2D_62cx3")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(2283, -690)
+shape = SubResource("RectangleShape2D_62cx3")
+
+[node name="DamageTimer" type="Timer" parent="Area2D2"]
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="timeout" from="Area2D/DamageTimer" to="Area2D" method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D2" to="Area2D2" method="_on_body_exited"]
+[connection signal="timeout" from="Area2D2/DamageTimer" to="Area2D2" method="_on_damage_timer_timeout"]
 
 [editable path="Portal"]
 [editable path="checkpointManager/checkpoint"]
