@@ -10,6 +10,8 @@ const JUMP_VELOCITY: float = -370.0
 
 signal health_changed(new_health: int)
 
+var checkpoint_manager
+
 var is_attacking: bool = false
 var attack_damage: int = 1
 var is_dead: bool = false
@@ -20,6 +22,7 @@ var hurt_duration: float = 0.6  # Duration of hurt state in seconds
 
 func _ready():
 	add_to_group("player")
+	checkpoint_manager = get_parent().get_node_or_null("checkpointManager")
 	sprite.play("Idle")
 
 func _physics_process(delta: float) -> void:
@@ -97,6 +100,13 @@ func hurt() -> void:
 		sprite.play("Hurt")
 		return
 
+func heal(amount: int = 1) -> void:
+	if is_dead:
+		return
+	health += amount
+	print("Player healed! Health: ", health)
+	health_changed.emit(health)
+
 func die() -> void:
 	is_dead = true
 	velocity = Vector2.ZERO
@@ -115,5 +125,18 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		is_hurt = false
 		is_attacking = false
 	elif sprite.animation == "die":
-		get_tree().reload_current_scene()
-		queue_free()
+		# Check for checkpoint before reloading scene
+		if checkpoint_manager and checkpoint_manager.last_location != null:
+			# Respawn at checkpoint
+			global_position = checkpoint_manager.last_location
+			is_dead = false
+			is_hurt = false
+			is_attacking = false
+			velocity = Vector2.ZERO
+			health = 5  # Reset health
+			health_changed.emit(health)
+			if sprite.sprite_frames.has_animation("Idle"):
+				sprite.play("Idle")
+		else:
+			# No checkpoint set, reload scene
+			get_tree().reload_current_scene()
