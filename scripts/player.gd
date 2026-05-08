@@ -91,6 +91,7 @@ func get_damage(damage: int = 1) -> void:
 
 func hurt() -> void:
 	is_hurt = true
+	is_attacking = false
 	hurt_timer = hurt_duration
 	if sprite.sprite_frames.has_animation("Hurt"):
 		sprite.play("Hurt")
@@ -112,6 +113,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		is_attacking = false
 	elif sprite.animation == "Hurt":
 		is_hurt = false
+		is_attacking = false
 	elif sprite.animation == "die":
 		get_tree().reload_current_scene()
 		queue_free()

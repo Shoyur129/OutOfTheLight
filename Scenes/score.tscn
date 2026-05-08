@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://hwe5yep2qfyn"]
+[gd_scene load_steps=4 format=3 uid="uid://hwe5yep2qfyn"]
 
 [ext_resource type="FontFile" uid="uid://bal5ie4n6jxmp" path="res://Assets/ShortBaby-Mg2w.ttf" id="1_hnwbn"]
+[ext_resource type="Script" uid="uid://ccwl20iy8ax7c" path="res://Scenes/score.gd" id="1_qcrpo"]
 [ext_resource type="Texture2D" uid="uid://bk1vgmt7vgh7b" path="res://Assets/Tilesets/Castle cartoon/PNG/Collectable Object/Coin_01.png" id="2_qcrpo"]
 
 [node name="Score" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_qcrpo")
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1

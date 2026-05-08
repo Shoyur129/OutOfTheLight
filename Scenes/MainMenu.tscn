@@ -1,14 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://t3wll4p66gon"]
+[gd_scene load_steps=12 format=3 uid="uid://t3wll4p66gon"]
 
 [ext_resource type="Texture2D" uid="uid://cay1avg06pqdc" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_01.png" id="1_853f1"]
 [ext_resource type="Script" uid="uid://cdg5ii8sqa864" path="res://scripts/main_menu.gd" id="1_ghw46"]
 [ext_resource type="Texture2D" uid="uid://xppihoxpp0wn" path="res://Assets/Tilesets/Castle cartoon/PNG/Background/Background_02.png" id="2_8saeu"]
-[ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="3_8saeu"]
 [ext_resource type="Texture2D" uid="uid://d0qdvatgfgff4" path="res://Assets/UI/PNG/Buttons/Text/Cartoon RPG UI_Button Text - Green.png" id="5_xim88"]
 [ext_resource type="Texture2D" uid="uid://c0v3qy6113y6i" path="res://Assets/UI/PNG/Buttons/Text/Cartoon RPG UI_Button Text - Red.png" id="6_koqhg"]
 [ext_resource type="Texture2D" uid="uid://bllpa6h6mvego" path="res://Assets/UI/PNG/Buttons/Text/Cartoon RPG UI_Button Text - Gray.png" id="6_xim88"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8saeu"]
 
 [sub_resource type="FontVariation" id="FontVariation_xim88"]
 variation_embolden = 0.75
@@ -61,48 +58,34 @@ position = Vector2(576, 326)
 scale = Vector2(0.94003, 0.869333)
 texture = ExtResource("2_8saeu")
 
-[node name="Player" parent="." instance=ExtResource("3_8saeu")]
-position = Vector2(592, 429)
-scale = Vector2(2, 2)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(582, 583)
-shape = SubResource("WorldBoundaryShape2D_8saeu")
-
 [node name="Button_manager" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Start" type="TextureButton" parent="Button_manager"]
-layout_mode = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="Button_manager"]
+layout_mode = 1
+anchors_preset = -1
 offset_left = 416.0
-offset_top = 160.0
+offset_top = 127.0
 offset_right = 736.0
-offset_bottom = 320.0
+offset_bottom = 615.0
+
+[node name="Start" type="TextureButton" parent="Button_manager/VBoxContainer"]
+layout_mode = 2
 texture_normal = ExtResource("5_xim88")
 texture_pressed = ExtResource("6_koqhg")
 texture_hover = ExtResource("6_xim88")
 
-[node name="Options" type="TextureButton" parent="Button_manager"]
-layout_mode = 0
-offset_left = 48.0
-offset_top = 200.0
-offset_right = 368.0
-offset_bottom = 360.0
+[node name="Options" type="TextureButton" parent="Button_manager/VBoxContainer"]
+layout_mode = 2
 texture_normal = ExtResource("5_xim88")
 texture_pressed = ExtResource("6_koqhg")
 texture_hover = ExtResource("6_xim88")
 
-[node name="Quit" type="TextureButton" parent="Button_manager"]
-layout_mode = 0
-offset_left = 768.0
-offset_top = 192.0
-offset_right = 1024.0
-offset_bottom = 256.0
+[node name="Quit" type="TextureButton" parent="Button_manager/VBoxContainer"]
+layout_mode = 2
 texture_normal = ExtResource("5_xim88")
 texture_pressed = ExtResource("6_koqhg")
 texture_hover = ExtResource("6_xim88")
@@ -126,10 +109,10 @@ vertical_alignment = 1
 [node name="Start" type="Label" parent="Label_manager"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 416.0
-offset_top = 160.0
-offset_right = 736.0
-offset_bottom = 320.0
+offset_left = 417.0
+offset_top = 125.0
+offset_right = 737.0
+offset_bottom = 285.0
 text = "Start"
 label_settings = SubResource("LabelSettings_xim88")
 horizontal_alignment = 1
@@ -138,10 +121,10 @@ vertical_alignment = 1
 [node name="Options" type="Label" parent="Label_manager"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 48.0
-offset_top = 200.0
-offset_right = 368.0
-offset_bottom = 360.0
+offset_left = 417.0
+offset_top = 294.0
+offset_right = 737.0
+offset_bottom = 454.0
 text = "Options"
 label_settings = SubResource("LabelSettings_koqhg")
 horizontal_alignment = 1
@@ -150,15 +133,15 @@ vertical_alignment = 1
 [node name="Quit" type="Label" parent="Label_manager"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 768.0
-offset_top = 192.0
-offset_right = 1088.0
-offset_bottom = 352.0
+offset_left = 414.0
+offset_top = 453.0
+offset_right = 734.0
+offset_bottom = 613.0
 text = "Quit"
 label_settings = SubResource("LabelSettings_cmrfp")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="Button_manager/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Button_manager/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="Button_manager/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Button_manager/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Button_manager/VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button_manager/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
