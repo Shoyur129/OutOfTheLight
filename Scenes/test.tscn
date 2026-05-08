@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cjkdv5yr4a3xt"]
+[gd_scene load_steps=72 format=3 uid="uid://cjkdv5yr4a3xt"]
 
 [ext_resource type="PackedScene" uid="uid://h0g4erbxhvh3" path="res://Scenes/player.tscn" id="1_8od7v"]
 [ext_resource type="Texture2D" uid="uid://bn7wrv1rjnfx2" path="res://Assets/Tilesets/Medieval/PNG/Platformer/Bonus.png" id="3_2jg6l"]
@@ -37,18 +37,19 @@
 [ext_resource type="PackedScene" uid="uid://b80pv0nwuao07" path="res://Scenes/portal.tscn" id="36_ipur1"]
 [ext_resource type="PackedScene" uid="uid://hwe5yep2qfyn" path="res://Scenes/score.tscn" id="37_wqbs1"]
 [ext_resource type="PackedScene" uid="uid://bv4pm3tr4xupn" path="res://Scenes/health.tscn" id="38_051wo"]
+[ext_resource type="PackedScene" uid="uid://paxsv7grivyr" path="res://Scenes/archer_1.tscn" id="38_wqbs1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e3rva"]
 texture = ExtResource("3_2jg6l")
 0:0/size_in_atlas = Vector2i(8, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62.5, -61, 60.5, -61, 62.5, 61, -61.5, 60)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cq6ew"]
 texture = ExtResource("4_nlfrn")
 0:0/size_in_atlas = Vector2i(8, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62.5, -61, 60.5, -61, 62.5, 61, -61.5, 60)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fosxv"]
 texture = ExtResource("5_j44qy")
@@ -112,7 +113,7 @@ texture = ExtResource("14_kcn80")
 texture = ExtResource("15_vbh6s")
 0:0/size_in_atlas = Vector2i(8, 8)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-62.5, -61, 60.5, -61, 62.5, 61, -61.5, 60)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-60, -60, 60, -60, 60, 60, -60, 60)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yot54"]
 texture = ExtResource("16_7wv1b")
@@ -252,17 +253,11 @@ sources/30 = SubResource("TileSetAtlasSource_5ews6")
 
 [node name="test" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_8od7v")]
-position = Vector2(253, 143)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
-
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_srv0g")
 rendering_quadrant_size = 17
 format = 2
-layer_0/tile_data = PackedInt32Array(851971, 0, 0, 851978, 0, 0, 851985, 0, 0, 458748, 1, 0, 851995, 0, 0, 852006, 0, 0, 852018, 0, 0, 852032, 0, 0, 1310742, 2, 0)
+layer_0/tile_data = PackedInt32Array(458748, 1, 0, 852018, 0, 0, 852032, 0, 0, 1310742, 2, 0, 851971, 0, 0, 851978, 0, 0, 851985, 0, 0, 851995, 0, 0, 852006, 0, 0)
 
 [node name="Killzone" parent="." instance=ExtResource("34_nlfrn")]
 position = Vector2(466, 326)
@@ -272,11 +267,11 @@ position = Vector2(37, 17)
 shape = SubResource("WorldBoundaryShape2D_nlfrn")
 
 [node name="Spikes" parent="." instance=ExtResource("35_j44qy")]
-position = Vector2(361, 254)
+position = Vector2(361.00003, 256.99994)
 scale = Vector2(0.35, 0.35)
 
 [node name="Portal" parent="." instance=ExtResource("36_ipur1")]
-position = Vector2(452, 140)
+position = Vector2(1034, 138)
 
 [node name="Sprite2D" parent="Portal" index="0"]
 position = Vector2(-2.2500172, -4.874999)
@@ -286,7 +281,7 @@ scale = Vector2(0.121094026, 0.33007813)
 position = Vector2(-1.25, -5)
 
 [node name="destination_point" parent="Portal" index="2"]
-position = Vector2(157, 0)
+position = Vector2(-982, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -305,10 +300,22 @@ offset_right = 40.0
 offset_bottom = 40.0
 theme_override_constants/separation = 50
 
+[node name="health" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("38_051wo")]
+layout_mode = 2
+
 [node name="Score" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("37_wqbs1")]
 layout_mode = 2
 
-[node name="health" parent="CanvasLayer/Control/VBoxContainer" instance=ExtResource("38_051wo")]
-layout_mode = 2
+[node name="Player" parent="." instance=ExtResource("1_8od7v")]
+position = Vector2(429, 129)
+scale = Vector2(0.25, 0.25)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-4, -4)
+zoom = Vector2(2, 2)
+
+[node name="Archer1" parent="." instance=ExtResource("38_wqbs1")]
+position = Vector2(200, 128)
+scale = Vector2(0.25, 0.25)
 
 [editable path="Portal"]
